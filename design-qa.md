@@ -2,6 +2,17 @@
 
 final result: passed
 
+## Light-glass follow-up
+
+- User requested more transparency in the light-theme experience, skills, and footer panels. Source screenshot saved as `.preview/light-glass-reference.png` (1226 × 858).
+- Reduced white panel opacity and, especially, the opaque sheen/top overlays across light glass levels L1–L5. Reduced the strongest white inset shadows. L1 now also has a translucent surface. Dark-theme tokens are unchanged.
+- Darkened the light-theme secondary text color to `#475569` to retain readability over the scene.
+- Implementation: `.preview/light-glass-after.png` (1280 × 720, 1:1 CSS/image pixels, light/L3/experience) and `.preview/light-glass-l5.png` (same viewport, light/L5).
+- Combined source/implementation comparison: `.preview/light-glass-comparison.png`. Both were opened together; proportional scaling only. Source and implementation have different viewport heights and scroll offsets, so this compares the panel treatment rather than exact framing.
+- Required surfaces: existing typography, layout, imagery, and copy retained; reduced light-surface opacity is the intended token change. Large panels visibly carry the pink/blue background colors, and small labels remain readable. L1/L3/L5 inspected in browser; no console warnings/errors. No actionable P0/P1/P2 findings remain.
+- Stylesheet version updated to `orbital-2` so returning visitors receive the new treatment.
+- Follow-up final result: passed.
+
 ## Scope and visual truth
 
 - Reference: https://www.instagram.com/p/DcYZC3dzFwN/
