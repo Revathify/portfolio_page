@@ -5,12 +5,61 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeAndGlass();
+  initSpaceFlight();
   initBackgroundMotion();
   initTelemetryClock();
   initTerminalTabs();
   initProjectFilters();
   initModal();
 });
+
+function initSpaceFlight() {
+  const scene = document.getElementById('sceneBackground');
+  if (!scene || !Element.prototype.animate) return;
+  const routes = [
+    { selector: '.scene-flight--near', duration: 72000, phase: 28000, rise: -0.05 },
+    { selector: '.scene-flight--far', duration: 106000, phase: 67000, rise: 0.03 },
+    { selector: '.scene-flight--distant', duration: 142000, phase: 41000, rise: -0.02 }
+  ];
+  const flights = new Map();
+
+  function buildRoutes() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    for (const route of routes) {
+      const ship = scene.querySelector(route.selector);
+      if (!ship) continue;
+      const previous = flights.get(ship);
+      const time = previous?.currentTime ?? route.phase;
+      previous?.cancel();
+      // Sample a smooth arc, deriving heading from its tangent. Native
+      // animations handle playback without a continuous JavaScript loop.
+      const frames = Array.from({ length: 121 }, (_, index) => {
+        const t = index / 120;
+        const dx = -(width + 900);
+        const dy = height * (4 * (route.rise - 0.08) * (1 - 2 * t) + 0.03 * Math.PI * Math.cos(2 * Math.PI * t));
+        const x = 80 + dx * t;
+        const y = height * (0.08 + 4 * (route.rise - 0.08) * t * (1 - t) + 0.015 * Math.sin(2 * Math.PI * t));
+        const heading = Math.atan2(-dy, -dx) * 180 / Math.PI;
+        const scale = 0.62 + 0.5 * Math.sin(Math.PI * t);
+        // Both ends are outside the viewport, including the exhaust.
+        const opacity = 0.94 * Math.min(1, t / 0.1, (1 - t) / 0.12);
+        return { offset: t, transform: `translate3d(${x}px, ${y}px, 0) rotate(${heading}deg) scale(${scale})`, opacity };
+      });
+      const flight = ship.animate(frames, { duration: route.duration, iterations: Infinity, easing: 'linear' });
+      flight.currentTime = time;
+      if (scene.dataset.motion === 'paused' || document.hidden) flight.pause();
+      flights.set(ship, flight);
+    }
+  }
+
+  buildRoutes();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildRoutes, 150);
+  });
+}
 
 function initBackgroundMotion() {
   const scene = document.getElementById('sceneBackground');
@@ -23,11 +72,20 @@ function initBackgroundMotion() {
     savedMotion = localStorage.getItem('revath-background-motion');
   } catch { /* The background also works when storage is unavailable. */ }
 
+  function syncAnimations() {
+    const paused = scene.dataset.motion === 'paused' || document.hidden;
+    for (const animation of scene.getAnimations?.({ subtree: true }) || []) {
+      if (paused) animation.pause();
+      else animation.play();
+    }
+  }
+
   function setMotion(paused) {
     scene.dataset.motion = paused ? 'paused' : 'running';
     toggle.textContent = paused ? 'Play background' : 'Pause background';
     toggle.setAttribute('aria-pressed', String(paused));
     toggle.setAttribute('aria-label', paused ? 'Play background animation' : 'Pause background animation');
+    syncAnimations();
   }
 
   setMotion(reducedMotion.matches || savedMotion === 'paused');
@@ -45,6 +103,7 @@ function initBackgroundMotion() {
   });
   function updateVisibility() {
     scene.dataset.idle = String(document.hidden);
+    syncAnimations();
   }
   document.addEventListener('visibilitychange', updateVisibility);
   updateVisibility();

@@ -2,6 +2,24 @@
 
 final result: passed
 
+## Transparency and flight correction (orbital-3)
+
+The user's next screenshots exposed two earlier misses: L1 remained visually opaque, and the light terminal/stat boxes retained solid-white overrides even at L5. These were P1 findings; the earlier light-glass acceptance was too narrow.
+
+- Sources: `.preview/glass-v3-source-l1.png` (1213 × 1113) and `.preview/glass-v3-source-l5.png` (1219 × 872).
+- Corrected captures: `.preview/glass-v3-l1.png`, `.preview/glass-v3-l5.png`, and `.preview/glass-v3-dark.png` (1280 × 720, 1:1 CSS/image pixels).
+- Combined comparison opened: `.preview/glass-v3-comparison.png`. It aligns the first 600 pixels of each overview, scaled proportionally. Source viewport heights differ, so only matching above-the-fold surfaces are compared.
+- Fix: light panel alpha now ranges from 0.56 at L1 to 0.22 at L5. Blur ranges from 6 to 14 pixels, retaining visible background structure. Restrained sheen avoids adding another heavy white layer. Nested terminal alpha ranges from 0.30 to 0.14, and stat/chip/button surfaces share translucent tokens instead of opaque white fills.
+- Typography/content: existing type sizes, wrapping, section layout, copy, and imagery retained. Darker body/secondary text and deeper terminal accent colors support readability on the newly transparent surfaces. Both L1 and L5 now show the city through the terminal and stat boxes. Dark theme inspected; original dark surface tokens retained.
+- Flight correction: three native browser animations sample smooth curved routes with heading derived from the path tangent and scale varying with depth. Independent local banking and a generated transparent ion-plume asset add motion beyond translation. This remains animated 2D artwork, not a fully rendered 3D spacecraft or video.
+- Motion evidence: `.preview/flight-motion-a.png` and `.preview/flight-motion-b.png` capture different positions/attitudes in an isolated background verification view. Live computed transforms changed independently for travel, banking, and exhaust. After pause, all three transforms remained identical on a subsequent observation. Resume restored motion.
+- Responsive evidence: `.preview/glass-v3-mobile.png`, a 390 × 844 CSS-pixel iframe captured inside the desktop browser. Mobile layout, glass readability, and controls inspected.
+- Focused checks passed: `.preview/check-motion.cjs` now checks native-animation pause/play as well as preferences/visibility; `.preview/check-flight.cjs` checks finite smooth samples, hidden loop endpoints, responsive path rebuilding, phase preservation, and paused resize. JavaScript syntax and whitespace checks passed. No browser console errors/warnings observed.
+- Image quality: original city/ship assets retained, with a new 40,290-byte transparent exhaust WebP. The plume is placed at the engine outlet and modulated separately from the hull.
+- Post-fix result: no actionable P0/P1/P2 findings in the requested glass/flight scope. Full 142-second distant-ship cycle was not watched end-to-end; endpoints and trajectory samples were checked directly.
+- CSS and application cache versions both updated to `orbital-3`.
+- Final result: passed.
+
 ## Light-glass follow-up
 
 - User requested more transparency in the light-theme experience, skills, and footer panels. Source screenshot saved as `.preview/light-glass-reference.png` (1226 × 858).

@@ -123,21 +123,22 @@
 :root[data-theme="light"] {
   color-scheme: light;
   --bg: #f0f4f8;
-  --fg: #334155;
+  --fg: #1e293b;
   --fg-strong: #0f172a;
-  --muted: #475569;
+  --muted: #334155;
   --line: rgba(203, 213, 225, 0.8);
   --line-strong: rgba(148, 163, 184, 0.6);
   --input: rgba(0, 0, 0, 0.04);
-  --surface: #ffffff;
-  --surface-hover: #f8fafc;
-  --surface-active: #f1f5f9;
-  --panel: rgba(255, 255, 255, 0.54);
-  --panel-top: rgba(255, 255, 255, 0.22);
+  --surface: rgba(255, 255, 255, 0.14);
+  --surface-hover: rgba(255, 255, 255, 0.28);
+  --surface-active: rgba(255, 255, 255, 0.36);
+  --terminal-surface: rgba(255, 255, 255, 0.22);
+  --panel: rgba(255, 255, 255, 0.36);
+  --panel-top: rgba(255, 255, 255, 0.06);
   --panel-border: rgba(203, 213, 225, 0.85);
   --panel-highlight: rgba(255, 255, 255, 1);
-  --panel-sheen: rgba(255, 255, 255, 0.12);
-  --topbar-bg: rgba(255, 255, 255, 0.90);
+  --panel-sheen: rgba(255, 255, 255, 0.04);
+  --topbar-bg: rgba(255, 255, 255, 0.46);
   --shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
 
   /* High-contrast accessible accents for light theme */
@@ -159,63 +160,68 @@
 /* Light glass stays translucent at every level. Restrained highlights keep
    the sheen from painting an opaque white layer over the backdrop. */
 :root[data-theme="light"][data-glass-level="1"] {
-  --glass-blur: 8px;
-  --glass-saturate: 100%;
-  --panel: rgba(255, 255, 255, 0.84);
-  --panel-top: rgba(255, 255, 255, 0.10);
+  --glass-blur: 6px;
+  --glass-saturate: 110%;
+  --panel: rgba(255, 255, 255, 0.56);
+  --terminal-surface: rgba(255, 255, 255, 0.30);
+  --panel-top: rgba(255, 255, 255, 0.04);
   --panel-border: #cbd5e1;
   --panel-highlight: #ffffff;
-  --panel-sheen: rgba(255, 255, 255, 0.04);
+  --panel-sheen: rgba(255, 255, 255, 0.02);
   --shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.05), 0 1px 2px 0 rgba(15, 23, 42, 0.03);
-  --topbar-bg: #ffffff;
+  --topbar-bg: rgba(255, 255, 255, 0.64);
 }
 
 :root[data-theme="light"][data-glass-level="2"] {
-  --glass-blur: 12px;
-  --glass-saturate: 125%;
-  --panel: rgba(255, 255, 255, 0.70);
-  --panel-top: rgba(255, 255, 255, 0.16);
+  --glass-blur: 8px;
+  --glass-saturate: 115%;
+  --panel: rgba(255, 255, 255, 0.46);
+  --terminal-surface: rgba(255, 255, 255, 0.26);
+  --panel-top: rgba(255, 255, 255, 0.05);
   --panel-border: rgba(203, 213, 225, 0.90);
   --panel-highlight: #ffffff;
-  --panel-sheen: rgba(255, 255, 255, 0.08);
+  --panel-sheen: rgba(255, 255, 255, 0.03);
   --shadow: 0 8px 22px -3px rgba(15, 23, 42, 0.07);
-  --topbar-bg: rgba(255, 255, 255, 0.90);
+  --topbar-bg: rgba(255, 255, 255, 0.54);
 }
 
 :root[data-theme="light"][data-glass-level="3"] {
-  --glass-blur: 18px;
-  --glass-saturate: 160%;
-  --panel: rgba(255, 255, 255, 0.54);
-  --panel-top: rgba(255, 255, 255, 0.22);
+  --glass-blur: 10px;
+  --glass-saturate: 120%;
+  --panel: rgba(255, 255, 255, 0.36);
+  --terminal-surface: rgba(255, 255, 255, 0.22);
+  --panel-top: rgba(255, 255, 255, 0.06);
   --panel-border: rgba(148, 163, 184, 0.50);
   --panel-highlight: #ffffff;
-  --panel-sheen: rgba(255, 255, 255, 0.12);
+  --panel-sheen: rgba(255, 255, 255, 0.04);
   --shadow: 0 14px 32px -6px rgba(15, 23, 42, 0.10), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --topbar-bg: rgba(255, 255, 255, 0.78);
+  --topbar-bg: rgba(255, 255, 255, 0.46);
 }
 
 :root[data-theme="light"][data-glass-level="4"] {
-  --glass-blur: 24px;
-  --glass-saturate: 195%;
-  --panel: rgba(255, 255, 255, 0.42);
-  --panel-top: rgba(255, 255, 255, 0.26);
+  --glass-blur: 12px;
+  --glass-saturate: 125%;
+  --panel: rgba(255, 255, 255, 0.28);
+  --terminal-surface: rgba(255, 255, 255, 0.18);
+  --panel-top: rgba(255, 255, 255, 0.07);
   --panel-border: rgba(37, 99, 235, 0.35);
   --panel-highlight: #ffffff;
-  --panel-sheen: rgba(255, 255, 255, 0.16);
+  --panel-sheen: rgba(255, 255, 255, 0.05);
   --shadow: 0 18px 42px -8px rgba(37, 99, 235, 0.12), inset 0 0 18px rgba(255, 255, 255, 0.12);
-  --topbar-bg: rgba(255, 255, 255, 0.60);
+  --topbar-bg: rgba(255, 255, 255, 0.38);
 }
 
 :root[data-theme="light"][data-glass-level="5"] {
-  --glass-blur: 30px;
-  --glass-saturate: 235%;
-  --panel: rgba(255, 255, 255, 0.32);
-  --panel-top: rgba(255, 255, 255, 0.30);
+  --glass-blur: 14px;
+  --glass-saturate: 130%;
+  --panel: rgba(255, 255, 255, 0.22);
+  --terminal-surface: rgba(255, 255, 255, 0.14);
+  --panel-top: rgba(255, 255, 255, 0.08);
   --panel-border: rgba(37, 99, 235, 0.55);
   --panel-highlight: #ffffff;
-  --panel-sheen: rgba(255, 255, 255, 0.20);
+  --panel-sheen: rgba(255, 255, 255, 0.06);
   --shadow: 0 24px 52px -10px rgba(37, 99, 235, 0.20), 0 0 0 1.5px rgba(255, 255, 255, 0.9), inset 0 0 32px rgba(255, 255, 255, 0.14);
-  --topbar-bg: rgba(255, 255, 255, 0.40);
+  --topbar-bg: rgba(255, 255, 255, 0.32);
 }
 
 /* Base Reset & Setup */
@@ -262,8 +268,8 @@ a {
   text-decoration: none;
 }
 
-/* Orbital city: one slow camera orbit and staggered, independent ship passes.
-   Every pass resets outside the viewport; only transforms/opacity animate. */
+/* The flight controller supplies smooth arcs and tangent-based headings.
+   CSS handles the camera drift, local attitude, and engine modulation. */
 .scene-background {
   position: fixed;
   inset: 0;
@@ -295,32 +301,78 @@ a {
   object-position: center;
 }
 
-.scene-ship {
+.scene-flight {
   position: absolute;
-  right: -440px;
-  top: 16%;
-  width: clamp(220px, 24vw, 420px);
-  height: auto;
+  left: 100%;
+  top: 38%;
+  width: clamp(230px, 28vw, 440px);
+  perspective: 900px;
   opacity: 0;
-  animation: orbital-transit 110s linear infinite;
-  animation-delay: -36s;
   will-change: transform, opacity;
 }
 
-.scene-ship--far {
-  top: 55%;
-  width: clamp(80px, 8vw, 140px);
-  animation-duration: 150s;
-  animation-delay: -104s;
-  filter: blur(0.4px);
+.scene-flight--far {
+  top: 74%;
+  width: clamp(85px, 10vw, 160px);
+  filter: blur(0.3px);
 }
 
-.scene-ship--distant {
-  top: 34%;
-  width: clamp(35px, 3.5vw, 65px);
-  animation-duration: 190s;
-  animation-delay: -142s;
-  filter: blur(0.7px);
+.scene-flight--distant {
+  top: 22%;
+  width: clamp(42px, 5vw, 80px);
+  filter: blur(0.6px);
+}
+
+.scene-vessel {
+  position: relative;
+  transform-origin: 55% 55%;
+  animation: orbital-attitude 13s ease-in-out infinite;
+  will-change: transform;
+}
+
+.scene-flight--far .scene-vessel {
+  animation-duration: 17s;
+  animation-delay: -6s;
+}
+
+.scene-flight--distant .scene-vessel {
+  animation-duration: 21s;
+  animation-delay: -12s;
+}
+
+.scene-ship {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.scene-exhaust {
+  position: absolute;
+  left: 96%;
+  top: 39%;
+  width: 56%;
+  height: 28%;
+  object-fit: fill;
+  transform-origin: left center;
+  mix-blend-mode: screen;
+  animation: orbital-thrust 1.8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.scene-flight--far .scene-exhaust { animation-delay: -0.8s; }
+.scene-flight--distant .scene-exhaust { animation-delay: -1.3s; }
+
+@keyframes orbital-attitude {
+  0%, 100% { transform: translate3d(0, 5px, 0) rotateX(3deg) rotateY(-8deg) rotateZ(-1.5deg); }
+  50% { transform: translate3d(0, -5px, 0) rotateX(-3deg) rotateY(8deg) rotateZ(1.5deg); }
+}
+
+@keyframes orbital-thrust {
+  0%, 100% { transform: scale(0.82, 0.88); opacity: 0.56; }
+  35% { transform: scale(1.12, 1.05); opacity: 0.86; }
+  65% { transform: scale(0.96, 0.94); opacity: 0.68; }
 }
 
 @keyframes orbital-drift {
@@ -328,14 +380,6 @@ a {
   25% { transform: translate3d(0, -0.5%, 0) scale(1.035); }
   50% { transform: translate3d(1%, 0, 0) scale(1.05); }
   75% { transform: translate3d(0, 1%, 0) scale(1.035); }
-}
-
-@keyframes orbital-transit {
-  0% { transform: translate3d(0, 12px, 0); opacity: 0; }
-  8% { opacity: 0.88; }
-  48% { transform: translate3d(calc(-50vw - 440px), -10px, 0); }
-  88% { opacity: 0.88; }
-  100% { transform: translate3d(calc(-100vw - 880px), 12px, 0); opacity: 0; }
 }
 
 .scene-motion-toggle {
@@ -2078,7 +2122,7 @@ button {
    ========================================================================== */
 
 :root[data-theme="light"] .glass-level-control {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
 }
 
@@ -2097,19 +2141,19 @@ button {
 }
 
 :root[data-theme="light"] .theme-toggle-btn {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #334155;
 }
 
 :root[data-theme="light"] .theme-toggle-btn:hover {
-  background: #f1f5f9;
+  background: var(--surface-hover);
   border-color: #1d4ed8;
   color: #1d4ed8;
 }
 
 :root[data-theme="light"] .telemetry-pill {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #334155;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
@@ -2121,7 +2165,7 @@ button {
 
 :root[data-theme="light"] .nav-link:hover {
   color: #0f172a;
-  background: #f1f5f9;
+  background: var(--surface-hover);
 }
 
 :root[data-theme="light"] .nav-link.active {
@@ -2146,13 +2190,13 @@ button {
 }
 
 :root[data-theme="light"] .btn-secondary {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #0f172a;
 }
 
 :root[data-theme="light"] .btn-secondary:hover {
-  background: #f8fafc;
+  background: var(--surface-hover);
   border-color: #1d4ed8;
   color: #1d4ed8;
 }
@@ -2161,7 +2205,7 @@ button {
    ========================================================================== */
 
 :root[data-theme="light"] .terminal-window {
-  background: #ffffff;
+  background: var(--terminal-surface);
   border: 1.5px solid #cbd5e1;
   box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05), inset 0 1px 0 #ffffff;
   color: #0f172a;
@@ -2197,26 +2241,26 @@ button {
 }
 
 :root[data-theme="light"] .term-dim {
-  color: #64748b;
+  color: #334155;
 }
 
 :root[data-theme="light"] .term-cyan {
-  color: #0284c7;
+  color: #075985;
   font-weight: 700;
 }
 
 :root[data-theme="light"] .term-green {
-  color: #059669;
+  color: #065f46;
   font-weight: 700;
 }
 
 :root[data-theme="light"] .term-purple {
-  color: #7c3aed;
+  color: #5b21b6;
   font-weight: 700;
 }
 
 :root[data-theme="light"] .term-amber {
-  color: #b45309;
+  color: #92400e;
   font-weight: 700;
 }
 
@@ -2226,7 +2270,7 @@ button {
 }
 
 :root[data-theme="light"] .term-prompt {
-  color: #0284c7;
+  color: #075985;
   font-weight: 700;
   margin-top: 12px;
 }
@@ -2236,7 +2280,7 @@ button {
 }
 
 :root[data-theme="light"] .tel-tab {
-  background: #ffffff;
+  background: var(--surface);
   color: #475569;
   border: 1px solid #cbd5e1;
   font-weight: 600;
@@ -2244,7 +2288,7 @@ button {
 
 :root[data-theme="light"] .tel-tab:hover {
   color: #0f172a;
-  background: #f1f5f9;
+  background: var(--surface-hover);
   border-color: #94a3b8;
 }
 
@@ -2257,7 +2301,7 @@ button {
 }
 
 :root[data-theme="light"] .mini-stat-box {
-  background: #ffffff;
+  background: var(--surface);
   border: 1px solid #cbd5e1;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 }
@@ -2273,7 +2317,7 @@ button {
 }
 
 :root[data-theme="light"] .glass-level-control {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
 }
 
@@ -2292,19 +2336,19 @@ button {
 }
 
 :root[data-theme="light"] .theme-toggle-btn {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #334155;
 }
 
 :root[data-theme="light"] .theme-toggle-btn:hover {
-  background: #f1f5f9;
+  background: var(--surface-hover);
   border-color: #1d4ed8;
   color: #1d4ed8;
 }
 
 :root[data-theme="light"] .telemetry-pill {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #334155;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
@@ -2316,7 +2360,7 @@ button {
 
 :root[data-theme="light"] .nav-link:hover {
   color: #0f172a;
-  background: #f1f5f9;
+  background: var(--surface-hover);
 }
 
 :root[data-theme="light"] .nav-link.active {
@@ -2340,25 +2384,25 @@ button {
 }
 
 :root[data-theme="light"] .btn-secondary {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #0f172a;
 }
 
 :root[data-theme="light"] .btn-secondary:hover {
-  background: #f8fafc;
+  background: var(--surface-hover);
   border-color: #1d4ed8;
   color: #1d4ed8;
 }
 
 :root[data-theme="light"] .filter-btn {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #475569;
 }
 
 :root[data-theme="light"] .filter-btn:hover {
-  background: #f8fafc;
+  background: var(--surface-hover);
   color: #0f172a;
   border-color: #94a3b8;
 }
@@ -2405,7 +2449,7 @@ button {
 }
 
 :root[data-theme="light"] .meta-chip {
-  background: #f1f5f9;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #334155;
   font-weight: 500;
@@ -2419,19 +2463,19 @@ button {
 }
 
 :root[data-theme="light"] .proj-gh-link {
-  background: #ffffff;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #475569;
 }
 
 :root[data-theme="light"] .proj-gh-link:hover {
-  background: #f1f5f9;
+  background: var(--surface-hover);
   color: #0f172a;
   border-color: #1d4ed8;
 }
 
 :root[data-theme="light"] .skill-chip {
-  background: #f1f5f9;
+  background: var(--surface);
   border-color: #cbd5e1;
   color: #334155;
 }
