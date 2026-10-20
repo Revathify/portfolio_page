@@ -230,6 +230,7 @@ html {
 }
 
 body {
+  isolation: isolate;
   background-color: var(--bg);
   background-image: 
     radial-gradient(ellipse 65% 45% at 20% 10%, rgba(130, 177, 255, 0.12), transparent 60%),
@@ -258,6 +259,130 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Orbital city: one slow camera orbit and staggered, independent ship passes.
+   Every pass resets outside the viewport; only transforms/opacity animate. */
+.scene-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #22283d;
+}
+
+.scene-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 12, 25, 0.44);
+}
+
+.scene-pan {
+  position: absolute;
+  inset: -5%;
+  animation: orbital-drift 96s linear infinite;
+  will-change: transform;
+}
+
+.scene-city {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.scene-ship {
+  position: absolute;
+  right: -440px;
+  top: 16%;
+  width: clamp(220px, 24vw, 420px);
+  height: auto;
+  opacity: 0;
+  animation: orbital-transit 110s linear infinite;
+  animation-delay: -36s;
+  will-change: transform, opacity;
+}
+
+.scene-ship--far {
+  top: 55%;
+  width: clamp(80px, 8vw, 140px);
+  animation-duration: 150s;
+  animation-delay: -104s;
+  filter: blur(0.4px);
+}
+
+.scene-ship--distant {
+  top: 34%;
+  width: clamp(35px, 3.5vw, 65px);
+  animation-duration: 190s;
+  animation-delay: -142s;
+  filter: blur(0.7px);
+}
+
+@keyframes orbital-drift {
+  0%, 100% { transform: translate3d(-1%, 0.5%, 0) scale(1.02); }
+  25% { transform: translate3d(0, -0.5%, 0) scale(1.035); }
+  50% { transform: translate3d(1%, 0, 0) scale(1.05); }
+  75% { transform: translate3d(0, 1%, 0) scale(1.035); }
+}
+
+@keyframes orbital-transit {
+  0% { transform: translate3d(0, 12px, 0); opacity: 0; }
+  8% { opacity: 0.88; }
+  48% { transform: translate3d(calc(-50vw - 440px), -10px, 0); }
+  88% { opacity: 0.88; }
+  100% { transform: translate3d(calc(-100vw - 880px), 12px, 0); opacity: 0; }
+}
+
+.scene-motion-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 18px;
+  z-index: 1100;
+  padding: 9px 13px;
+  min-height: 44px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-pill);
+  background: var(--topbar-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.scene-motion-toggle:hover {
+  border-color: var(--accent);
+  color: var(--fg-strong);
+}
+
+.scene-motion-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.scene-motion-toggle[hidden] { display: none; }
+
+.scene-background[data-motion="paused"] *,
+.scene-background[data-idle="true"] * {
+  animation-play-state: paused;
+}
+
+:root[data-theme="light"] .scene-background::after {
+  background: rgba(232, 237, 247, 0.25);
+}
+
+@media (max-width: 768px) {
+  .scene-city { object-position: 64% center; }
+  .scene-motion-toggle { right: 12px; bottom: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-background:not([data-motion="running"]) * { animation-play-state: paused; }
 }
 
 button {

@@ -5,11 +5,50 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeAndGlass();
+  initBackgroundMotion();
   initTelemetryClock();
   initTerminalTabs();
   initProjectFilters();
   initModal();
 });
+
+function initBackgroundMotion() {
+  const scene = document.getElementById('sceneBackground');
+  const toggle = document.getElementById('sceneMotionToggle');
+  if (!scene || !toggle) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let savedMotion;
+  try {
+    savedMotion = localStorage.getItem('revath-background-motion');
+  } catch { /* The background also works when storage is unavailable. */ }
+
+  function setMotion(paused) {
+    scene.dataset.motion = paused ? 'paused' : 'running';
+    toggle.textContent = paused ? 'Play background' : 'Pause background';
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.setAttribute('aria-label', paused ? 'Play background animation' : 'Pause background animation');
+  }
+
+  setMotion(reducedMotion.matches || savedMotion === 'paused');
+  toggle.hidden = false;
+  toggle.addEventListener('click', () => {
+    const paused = scene.dataset.motion !== 'paused';
+    setMotion(paused);
+    try {
+      localStorage.setItem('revath-background-motion', paused ? 'paused' : 'running');
+    } catch { /* Keep the control usable without persistent storage. */ }
+  });
+
+  reducedMotion.addEventListener('change', (event) => {
+    if (event.matches) setMotion(true);
+  });
+  function updateVisibility() {
+    scene.dataset.idle = String(document.hidden);
+  }
+  document.addEventListener('visibilitychange', updateVisibility);
+  updateVisibility();
+}
 
 /* ==========================================================================
    THEME & GLASS LEVEL SYSTEM
