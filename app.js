@@ -1,6 +1,6 @@
 /**
  * Revathify — Portfolio Application Logic
- * Liquid Glass UI & Interactive Systems (RPI-Dashboard style)
+ * Refractive Glass UI & Interactive Systems (RPI-Dashboard style)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTerminalTabs();
   initProjectFilters();
   initModal();
+  initDiscordCopy();
 });
 
 /* ==========================================================================
@@ -112,7 +113,7 @@ const TERMINAL_DATA = {
 `,
   tools: `
 <div class="term-line"><span class="term-amber">[DEV-PROJECTS]</span> System telemetry and desktop log analytics...</div>
-<div class="term-line"><span class="term-cyan">✔ RPI-DASHBOARD:</span> 24/7 ARM64 Raspberry Pi liquid glass developer workstation</div>
+<div class="term-line"><span class="term-cyan">✔ RPI-DASHBOARD:</span> 24/7 ARM64 Raspberry Pi refractive glass developer workstation</div>
 <div class="term-line"><span class="term-green">✔ WCFLA:</span> Warcraft Logs V2 encounter analysis with OAuth 2.0 PKCE security</div>
 <div class="term-line"><span class="term-purple">✔ BBINDER:</span> Motorcycle community and privacy-focused trip planning engine</div>
 <div class="term-line"><span class="term-dim">-- Cross-platform: Web, Electron desktop & React Native</span></div>
@@ -188,19 +189,19 @@ const PROJECT_MODAL_DATA = {
   },
   rpi: {
     badge: "Open Source / Raspberry Pi",
-    title: "RPI-Dashboard — Liquid Glass Developer Workspace",
+    title: "RPI-Dashboard — Refractive Glass Developer Workspace",
     content: `
-      <p>A high-fidelity, liquid-glass local dashboard hosted 24/7 on an ARM64 Raspberry Pi. Combines real-time telemetry, project roadmaps, and local tools.</p>
+      <p>A high-fidelity, refractive glass local dashboard hosted 24/7 on an ARM64 Raspberry Pi. Combines real-time telemetry, project roadmaps, and local tools.</p>
       
       <h4>Key Features:</h4>
       <ul>
-        <li><strong>5-Level Liquid Glass Design:</strong> Custom CSS backdrop filter and saturate engine with configurable translucency, specular highlights, and dark/light modes.</li>
+        <li><strong>5-Level Refractive Glass Design:</strong> Custom CSS backdrop filter and saturate engine with configurable translucency, specular highlights, and dark/light modes.</li>
         <li><strong>Hardware Telemetry:</strong> Live monitoring of CPU load, temperature, RAM consumption, and system health.</li>
         <li><strong>Developer Workspace:</strong> Multi-repository synchronization, task tracking, and local environment status.</li>
       </ul>
 
       <h4>Tech Stack:</h4>
-      <p>React, Vite, Node.js, Raspberry Pi (Debian ARM64), Chart.js, CSS Liquid Glass.</p>
+      <p>React, Vite, Node.js, Raspberry Pi (Debian ARM64), Chart.js, CSS Refractive Glass.</p>
     `,
     isPrivate: false,
     repoUrl: "https://github.com/Revathify/RPI-Dashboard"
@@ -263,22 +264,6 @@ const PROJECT_MODAL_DATA = {
     `,
     isPrivate: false,
     repoUrl: "https://github.com/Revathify/revaths_macro_workshop"
-  },
-  ai_devops: {
-    badge: "Engineering Workflows",
-    title: "AI-Assisted DevOps & Workflow Automation",
-    content: `
-      <p>Practical implementation of multi-agent LLM systems and automation tooling designed to accelerate infrastructure workflows, log analysis, and configuration authoring.</p>
-      
-      <h4>Key Areas:</h4>
-      <ul>
-        <li><strong>Automated Log Triage:</strong> Fast-pattern scanning over large CI logs to isolate known failure signatures.</li>
-        <li><strong>IaC & Test Authoring:</strong> Templated generation of Packer, Ansible, and validation test suites with consistency checks.</li>
-        <li><strong>Runbook Generation:</strong> Distilling operational procedures into structured, executable documentation.</li>
-      </ul>
-    `,
-    isPrivate: false,
-    repoUrl: "https://github.com/Revathify"
   }
 };
 
@@ -342,4 +327,59 @@ function initModal() {
       if (id) openModal(id);
     });
   });
+}
+
+/* ==========================================================================
+   DISCORD USERNAME COPY SYSTEM
+   ========================================================================== */
+
+function initDiscordCopy() {
+  function copyUsername(btn, tagEl) {
+    const username = 'revath';
+
+    function onSuccess() {
+      if (tagEl) {
+        const original = tagEl.textContent;
+        tagEl.textContent = 'Copied!';
+        tagEl.classList.add('copied');
+        setTimeout(() => {
+          tagEl.textContent = original;
+          tagEl.classList.remove('copied');
+        }, 2000);
+      }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(username).then(onSuccess).catch(fallback);
+    } else {
+      fallback();
+    }
+
+    function fallback() {
+      const textarea = document.createElement('textarea');
+      textarea.value = username;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        onSuccess();
+      } catch (err) {
+        console.error('Failed to copy username', err);
+      }
+      document.body.removeChild(textarea);
+    }
+  }
+
+  const heroBtn = document.getElementById('heroDiscordBtn');
+  const heroTag = document.getElementById('heroDiscordTag');
+  if (heroBtn) {
+    heroBtn.addEventListener('click', () => copyUsername(heroBtn, heroTag));
+  }
+
+  const footerBtn = document.getElementById('footerDiscordCopyBtn');
+  if (footerBtn) {
+    footerBtn.addEventListener('click', () => copyUsername(footerBtn, footerBtn));
+  }
 }

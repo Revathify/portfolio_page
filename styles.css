@@ -1,6 +1,6 @@
 /* ==========================================================================
    REVATHIFY — PORTFOLIO DESIGN SYSTEM
-   Based on the RPI-Dashboard Liquid Glass & Glassmorphic UI Architecture
+   Based on the RPI-Dashboard Refractive Glass & Glassmorphic UI Architecture
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
@@ -60,7 +60,7 @@
 }
 
 /* Glass Level 1: Subtelny */
-:root[data-glass-level="1"] {
+:root:not([data-theme="light"])[data-glass-level="1"] {
   --glass-blur: 8px;
   --glass-saturate: 110%;
   --panel: rgba(26, 30, 40, 0.84);
@@ -72,7 +72,7 @@
 }
 
 /* Glass Level 2: Klasyczny */
-:root[data-glass-level="2"] {
+:root:not([data-theme="light"])[data-glass-level="2"] {
   --glass-blur: 14px;
   --glass-saturate: 130%;
   --panel: rgba(24, 28, 38, 0.72);
@@ -84,7 +84,7 @@
 }
 
 /* Glass Level 3: Szklisty (Default) */
-:root[data-glass-level="3"] {
+:root:not([data-theme="light"])[data-glass-level="3"] {
   --glass-blur: 20px;
   --glass-saturate: 150%;
   --panel: rgba(22, 26, 36, 0.58);
@@ -96,7 +96,7 @@
 }
 
 /* Glass Level 4: Kryształ */
-:root[data-glass-level="4"] {
+:root:not([data-theme="light"])[data-glass-level="4"] {
   --glass-blur: 28px;
   --glass-saturate: 180%;
   --panel: rgba(18, 22, 34, 0.40);
@@ -107,8 +107,8 @@
   --shadow: 0 24px 50px -8px rgba(0, 0, 0, 0.46), 0 0 0 1px rgba(255, 255, 255, 0.12), inset 0 0 20px rgba(255, 255, 255, 0.03);
 }
 
-/* Glass Level 5: Płynne szkło */
-:root[data-glass-level="5"] {
+/* Glass Level 5: Refrakcyjne szkło (Ultra Refractive Glass) */
+:root:not([data-theme="light"])[data-glass-level="5"] {
   --glass-blur: 38px;
   --glass-saturate: 210%;
   --panel: rgba(14, 18, 30, 0.26);
@@ -122,23 +122,79 @@
 /* Light Theme Support */
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #eef2f7;
-  --fg: #1c2534;
-  --fg-strong: #0d1522;
-  --muted: #5e6b7e;
-  --line: rgba(0, 0, 0, 0.08);
-  --line-strong: rgba(0, 0, 0, 0.14);
+  --bg: #f0f4f8;
+  --fg: #334155;
+  --fg-strong: #0f172a;
+  --muted: #64748b;
+  --line: rgba(203, 213, 225, 0.8);
+  --line-strong: rgba(148, 163, 184, 0.6);
   --input: rgba(0, 0, 0, 0.04);
-  --surface: rgba(0, 0, 0, 0.03);
-  --surface-hover: rgba(0, 0, 0, 0.06);
-  --surface-active: rgba(0, 0, 0, 0.10);
+  --surface: #ffffff;
+  --surface-hover: #f8fafc;
+  --surface-active: #f1f5f9;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-top: rgba(255, 255, 255, 1);
+  --panel-border: rgba(203, 213, 225, 0.85);
+  --panel-highlight: rgba(255, 255, 255, 1);
+  --panel-sheen: rgba(255, 255, 255, 0.7);
+  --topbar-bg: rgba(255, 255, 255, 0.90);
+  --shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+
+  /* High-contrast accessible accents for light theme */
+  --accent: #1d4ed8;
+  --accent-strong: #1e40af;
+  --accent-wash: rgba(29, 78, 216, 0.09);
+  --accent-glow: rgba(29, 78, 216, 0.22);
+
+  --accent-purple: #6d28d9;
+  --accent-purple-wash: rgba(109, 40, 217, 0.09);
+  --accent-green: #047857;
+  --accent-green-wash: rgba(4, 120, 87, 0.09);
+  --accent-amber: #b45309;
+  --accent-amber-wash: rgba(180, 83, 9, 0.09);
+  --accent-pink: #be185d;
+  --accent-pink-wash: rgba(190, 24, 93, 0.09);
+}
+
+/* Light Theme Glass Levels (L1-L5) */
+:root[data-theme="light"][data-glass-level="1"] {
+  --glass-blur: 8px;
+  --glass-saturate: 110%;
+  --panel: rgba(255, 255, 255, 0.96);
+  --panel-border: rgba(203, 213, 225, 0.95);
+  --shadow: 0 8px 20px -3px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-theme="light"][data-glass-level="2"] {
+  --glass-blur: 14px;
+  --glass-saturate: 130%;
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel-border: rgba(203, 213, 225, 0.90);
+  --shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.07);
+}
+
+:root[data-theme="light"][data-glass-level="3"] {
+  --glass-blur: 20px;
+  --glass-saturate: 150%;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-border: rgba(203, 213, 225, 0.85);
+  --shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+}
+
+:root[data-theme="light"][data-glass-level="4"] {
+  --glass-blur: 28px;
+  --glass-saturate: 180%;
+  --panel: rgba(255, 255, 255, 0.80);
+  --panel-border: rgba(203, 213, 225, 0.80);
+  --shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.10);
+}
+
+:root[data-theme="light"][data-glass-level="5"] {
+  --glass-blur: 38px;
+  --glass-saturate: 210%;
   --panel: rgba(255, 255, 255, 0.72);
-  --panel-top: rgba(255, 255, 255, 0.85);
-  --panel-border: rgba(0, 0, 0, 0.08);
-  --panel-highlight: rgba(255, 255, 255, 0.95);
-  --panel-sheen: rgba(255, 255, 255, 0.35);
-  --topbar-bg: rgba(245, 247, 251, 0.78);
-  --shadow: 0 16px 36px -6px rgba(18, 30, 50, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+  --panel-border: rgba(203, 213, 225, 0.75);
+  --shadow: 0 20px 42px -8px rgba(15, 23, 42, 0.12);
 }
 
 /* Base Reset & Setup */
@@ -190,7 +246,7 @@ button {
 }
 
 /* ==========================================================================
-   LIQUID GLASS PANELS & ATOMS
+   REFRACTIVE GLASS PANELS & ATOMS
    ========================================================================== */
 
 .glass-panel {
@@ -1710,4 +1766,371 @@ button {
     gap: 12px;
     text-align: center;
   }
+}
+
+
+/* Terminal Title Bar & Window Dots */
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.term-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.term-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.term-title {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--muted);
+}
+
+.term-badge {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-green);
+  background: var(--accent-green-wash);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.5px;
+}
+
+/* Discord Pill & Buttons */
+.btn-discord {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(88, 101, 242, 0.12);
+  border: 1px solid rgba(88, 101, 242, 0.35);
+  color: #5865F2;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-discord:hover {
+  background: rgba(88, 101, 242, 0.22);
+  border-color: #5865F2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.25);
+}
+
+.btn-discord strong {
+  color: var(--fg-strong);
+  font-family: var(--font-mono);
+}
+
+.copy-tag {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  background: rgba(88, 101, 242, 0.22);
+  color: #5865F2;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  margin-left: 4px;
+  transition: var(--transition);
+}
+
+.copy-tag.copied, .copy-btn.copied {
+  background: #10b981 !important;
+  color: #ffffff !important;
+}
+
+.contact-item.discord-item svg {
+  color: #5865F2;
+}
+
+.contact-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.discord-handle {
+  font-family: var(--font-mono);
+  color: var(--fg-strong);
+}
+
+/* ==========================================================================
+   LIGHT THEME POLISH & HIGH-CONTRAST OVERRIDES
+   ========================================================================== */
+
+:root[data-theme="light"] .glass-level-control {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+:root[data-theme="light"] .glass-btn {
+  color: #64748b;
+}
+
+:root[data-theme="light"] .glass-btn:hover {
+  color: #0f172a;
+}
+
+:root[data-theme="light"] .glass-btn.active {
+  background: #1d4ed8;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.35);
+}
+
+:root[data-theme="light"] .theme-toggle-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+:root[data-theme="light"] .theme-toggle-btn:hover {
+  background: #f1f5f9;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+}
+
+:root[data-theme="light"] .telemetry-pill {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-theme="light"] .nav-link {
+  color: #64748b;
+}
+
+:root[data-theme="light"] .nav-link:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+:root[data-theme="light"] .nav-link.active {
+  color: #1d4ed8;
+  background: rgba(29, 78, 216, 0.09);
+  font-weight: 600;
+}
+
+/* Light Theme Hero Badges */
+:root[data-theme="light"] .role-badge {
+  background: rgba(29, 78, 216, 0.09);
+  color: #1d4ed8;
+  border-color: rgba(29, 78, 216, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .intel-badge {
+  background: rgba(4, 120, 87, 0.09);
+  color: #047857;
+  border-color: rgba(4, 120, 87, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .btn-secondary {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+:root[data-theme="light"] .btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+}
+
+/* Light Theme Terminal Window - Real Dark Console */
+:root[data-theme="light"] .terminal-window {
+  background: #0b101b;
+  border: 1px solid #1e293b;
+  box-shadow: 0 14px 32px -4px rgba(15, 23, 42, 0.3);
+}
+
+:root[data-theme="light"] .terminal-bar {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="light"] .term-title {
+  color: #94a3b8;
+}
+
+:root[data-theme="light"] .term-dim {
+  color: #94a3b8;
+}
+
+:root[data-theme="light"] .term-cyan {
+  color: #38bdf8;
+}
+
+:root[data-theme="light"] .term-green {
+  color: #4ade80;
+}
+
+:root[data-theme="light"] .term-purple {
+  color: #c084fc;
+}
+
+:root[data-theme="light"] .term-amber {
+  color: #fbbf24;
+}
+
+:root[data-theme="light"] .term-prompt {
+  color: #38bdf8;
+}
+
+:root[data-theme="light"] .cursor-blink {
+  background: #38bdf8;
+}
+
+:root[data-theme="light"] .tel-tab {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+:root[data-theme="light"] .tel-tab:hover {
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+:root[data-theme="light"] .tel-tab.active {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  font-weight: 600;
+}
+
+:root[data-theme="light"] .mini-stat-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+/* Light Theme Filter Buttons */
+:root[data-theme="light"] .filter-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+:root[data-theme="light"] .filter-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+:root[data-theme="light"] .filter-btn.active {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+  font-weight: 600;
+}
+
+/* Light Theme Project Cards & Badges */
+:root[data-theme="light"] .project-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(203, 213, 225, 0.85);
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+}
+
+:root[data-theme="light"] .project-card:hover {
+  border-color: rgba(29, 78, 216, 0.45);
+  box-shadow: 0 18px 40px -8px rgba(29, 78, 216, 0.16), inset 0 1px 0 #ffffff;
+}
+
+:root[data-theme="light"] .status-active {
+  background: rgba(4, 120, 87, 0.10);
+  color: #047857;
+  border-color: rgba(4, 120, 87, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .status-prod {
+  background: rgba(29, 78, 216, 0.09);
+  color: #1d4ed8;
+  border-color: rgba(29, 78, 216, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .status-modular {
+  background: rgba(109, 40, 217, 0.09);
+  color: #6d28d9;
+  border-color: rgba(109, 40, 217, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .status-shipped {
+  background: rgba(180, 83, 9, 0.10);
+  color: #92400e;
+  border-color: rgba(180, 83, 9, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .meta-chip {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+  font-weight: 500;
+}
+
+:root[data-theme="light"] .meta-chip.highlight {
+  background: rgba(29, 78, 216, 0.08);
+  border-color: rgba(29, 78, 216, 0.25);
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+:root[data-theme="light"] .proj-gh-link {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+:root[data-theme="light"] .proj-gh-link:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #1d4ed8;
+}
+
+:root[data-theme="light"] .skill-chip {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+:root[data-theme="light"] .skill-chip.hot {
+  background: rgba(29, 78, 216, 0.09);
+  border-color: rgba(29, 78, 216, 0.28);
+  color: #1d4ed8;
+}
+
+:root[data-theme="light"] .copy-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+:root[data-theme="light"] .copy-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #1d4ed8;
 }
