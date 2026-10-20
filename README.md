@@ -9,6 +9,7 @@
 - **Orbital City Background**:
   - Original sci-fi city artwork inspired by the atmosphere of the supplied [Instagram reference](https://www.instagram.com/p/DcYZC3dzFwN/), with blue arcologies, a coral planet, and independently drifting spacecraft.
   - Seamless 96-second camera drift, curved ship routes with changing depth and heading, gentle banking, and animated ion exhaust. Native browser animations use locally hosted WebP artwork, with no video player or animation library needed.
+  - Three independently drifting cloud banks and 28 small vehicles following both directions of the painted highway. Traffic uses the artwork's coordinates so it remains aligned through camera movement and responsive image cropping.
   - Pause/play control with a saved preference, automatic pause in hidden tabs, and a still background by default for reduced-motion preferences.
   - Works behind the existing glass panels in dark and light themes, with a separate mobile crop. All five light glass levels, including nested terminal/stat surfaces, remain translucent.
 - **RPI-Dashboard Refractive Glass Style**:

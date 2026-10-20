@@ -2,6 +2,22 @@
 
 final result: passed
 
+## Clouds and city traffic (orbital-4)
+
+- Request: add moving clouds and cars so motion is present throughout the city, using the Instagram highway crop as a movement reference (`.preview/road-motion-reference.png`). The original generated city remains the environment source (`assets/orbital-city.webp`).
+- Added three softly overlapping cloud banks with different phases, heights, and speeds, using an original transparent cloud texture (165,152 bytes). Each layer drifts and changes scale slightly, with transparent endpoints and overlapping playback.
+- Added 28 small vehicle sprites (one shared 2,124-byte transparent asset) traveling in two directions along a sampled curve fitted to the painted highway. Vehicle heading follows the curve; size and apparent speed increase toward the foreground.
+- Responsive registration: traffic positions are calculated in the original 1672 × 941 artwork coordinates, then mapped through the same cover scale and object-position as the image. The traffic layer is inside the camera-drift container, so the road and vehicles move together.
+- Evidence: `.preview/city-motion-a.png`, `.preview/city-motion-b.png`, and `.preview/city-paused.png` (1253 × 1244, 1:1 CSS/image pixels); `.preview/city-motion-portfolio.png` shows the layers behind the existing UI. Source normalized to a matching cover crop in `.preview/city-source-normalized.png`. Both were opened together in `.preview/city-motion-comparison.png`; the small crop/zoom difference is the intended moving camera, and the light-theme scrim intentionally lightens the artwork.
+- Focused road inspection: `.preview/traffic-road-check.png` is an enlarged crop of the captured runtime image, compared against `.preview/road-detail.png`. Sampled vehicle bounding boxes align with the diagonal road. No cars were observed crossing the building facades in this sample.
+- Motion: vehicle and cloud transforms changed between observations. After pause, the sampled car and cloud transforms stayed identical in two later observations. Resume restored playback. Reduced-motion and page visibility use the shared scene control.
+- Typography, layout rhythm, and copy are unchanged. Existing light-glass tokens remain in place; the new layers are decorative, excluded from accessibility content, and outside page layout. New image colors match the coral/lavender/blue environment. No actionable P0/P1/P2 findings in the inspected states.
+- Mobile evidence: `.preview/city-motion-mobile.png`, a fully initialized 390 × 844 CSS-pixel iframe. Crop/controls/readability inspected. One MutationObserver error appeared during wrapper reload; the project contains no MutationObserver/observe call, the frame subsequently initialized, and the main portfolio view had no console errors. This wrapper-only observation is retained as a test limitation.
+- Checks passed: JavaScript syntax, whitespace, existing motion/flight checks, and `.preview/check-traffic.cjs` (two directions, finite route samples, hidden endpoints, mobile cover/object-position mapping, preserved phase, paused resize, and no duplicate cars on resize).
+- Limits: this remains a layered animated scene, not a full 3D simulation. The painted original clouds/window lights remain in the source image; the new cloud banks and vehicle streams add independent movement. Full 230-second far-cloud cycle was not watched in real time; endpoint behavior was inspected in the animation definition.
+- Both CSS and script cache versions updated to `orbital-4`.
+- Final result: passed.
+
 ## Transparency and flight correction (orbital-3)
 
 The user's next screenshots exposed two earlier misses: L1 remained visually opaque, and the light terminal/stat boxes retained solid-white overrides even at L5. These were P1 findings; the earlier light-glass acceptance was too narrow.

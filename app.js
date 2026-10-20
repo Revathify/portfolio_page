@@ -6,12 +6,89 @@
 document.addEventListener('DOMContentLoaded', () => {
   initThemeAndGlass();
   initSpaceFlight();
+  initCityTraffic();
   initBackgroundMotion();
   initTelemetryClock();
   initTerminalTabs();
   initProjectFilters();
   initModal();
 });
+
+// Coordinates follow the diagonal highway in the source artwork. Keeping
+// traffic in the image's coordinate system also keeps it on-road when cropped.
+const CITY_ROAD = [
+  [910, 443], [1030, 514], [1160, 589], [1290, 662],
+  [1420, 747], [1550, 852], [1685, 975]
+];
+
+function cityRoadPoint(t) {
+  const segment = Math.min(CITY_ROAD.length - 2, Math.floor(t * (CITY_ROAD.length - 1)));
+  const u = t * (CITY_ROAD.length - 1) - segment;
+  const p0 = CITY_ROAD[Math.max(0, segment - 1)];
+  const p1 = CITY_ROAD[segment];
+  const p2 = CITY_ROAD[segment + 1];
+  const p3 = CITY_ROAD[Math.min(CITY_ROAD.length - 1, segment + 2)];
+  return [0, 1].map(axis => 0.5 * ((2 * p1[axis]) + (-p0[axis] + p2[axis]) * u +
+    (2 * p0[axis] - 5 * p1[axis] + 4 * p2[axis] - p3[axis]) * u * u +
+    (-p0[axis] + 3 * p1[axis] - 3 * p2[axis] + p3[axis]) * u * u * u));
+}
+
+function initCityTraffic() {
+  const scene = document.getElementById('sceneBackground');
+  const image = scene?.querySelector('.scene-city');
+  const layer = document.getElementById('sceneTraffic');
+  if (!layer || !image || !Element.prototype.animate) return;
+  const cars = [];
+  for (let index = 0; index < 28; index++) {
+    const car = document.createElement('img');
+    car.className = 'scene-car';
+    car.src = 'assets/orbital-traffic.webp';
+    car.alt = '';
+    car.decoding = 'async';
+    layer.append(car);
+    cars.push({ element: car, reverse: index % 2 === 1, duration: 52000 + (index % 5) * 2900, phase: index / 28 });
+  }
+
+  function buildTraffic() {
+    if (!image.naturalWidth || !image.clientWidth || !image.clientHeight) return;
+    const width = image.clientWidth;
+    const height = image.clientHeight;
+    const cover = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+    const position = getComputedStyle(image).objectPosition.split(' ').map(value => parseFloat(value) / 100);
+    const cropX = (width - image.naturalWidth * cover) * position[0];
+    const cropY = (height - image.naturalHeight * cover) * position[1];
+    for (const car of cars) {
+      const time = car.animation?.currentTime ?? car.duration * car.phase;
+      car.animation?.cancel();
+      const size = 13 * cover;
+      car.element.style.width = `${size}px`;
+      const frames = Array.from({ length: 121 }, (_, index) => {
+        const u = index / 120;
+        const t = Math.pow(car.reverse ? 1 - u : u, 1.35);
+        const point = cityRoadPoint(t);
+        const before = cityRoadPoint(Math.max(0, t - 0.001));
+        const after = cityRoadPoint(Math.min(1, t + 0.001));
+        const heading = Math.atan2(after[1] - before[1], after[0] - before[0]) * 180 / Math.PI + (car.reverse ? 180 : 0);
+        const x = point[0] * cover + cropX - size / 2;
+        const y = (point[1] + (car.reverse ? -6 : 6)) * cover + cropY - size / 6;
+        const scale = 0.35 + 0.8 * t;
+        const opacity = 0.92 * Math.min(1, u / 0.05, (1 - u) / 0.05);
+        return { offset: u, transform: `translate3d(${x}px, ${y}px, 0) rotate(${heading}deg) scale(${scale})`, opacity };
+      });
+      car.animation = car.element.animate(frames, { duration: car.duration, iterations: Infinity, easing: 'linear' });
+      car.animation.currentTime = time;
+      if (scene.dataset.motion === 'paused' || document.hidden) car.animation.pause();
+    }
+  }
+
+  buildTraffic();
+  image.addEventListener('load', buildTraffic, { once: true });
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildTraffic, 150);
+  });
+}
 
 function initSpaceFlight() {
   const scene = document.getElementById('sceneBackground');
