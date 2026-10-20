@@ -1,4 +1,4 @@
-# Jakub (Revathify) — Portfolio Webpage
+# Revathify — Portfolio Webpage
 
 > Interactive portfolio webpage designed in the authentic **RPI-Dashboard Liquid Glass** visual style, hosted at [portfolio.revathify.org](https://portfolio.revathify.org).
 

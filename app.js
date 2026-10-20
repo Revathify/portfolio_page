@@ -1,5 +1,5 @@
 /**
- * Jakub (Revathify) — Portfolio Application Logic
+ * Revathify — Portfolio Application Logic
  * Liquid Glass UI & Interactive Systems (RPI-Dashboard style)
  */
 
