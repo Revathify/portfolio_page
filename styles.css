@@ -702,44 +702,95 @@ button {
 }
 
 .terminal-window {
-  background: rgba(10, 13, 18, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
-  padding: 14px 16px;
+  padding: 16px 18px;
   font-family: var(--font-mono);
   font-size: 12px;
-  line-height: 1.55;
+  line-height: 1.6;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: #f1f5f9;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.term-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.term-dot {
+  width: 11px;
+  height: 11px;
+  min-width: 11px;
+  min-height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.term-title {
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.term-badge {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-green);
+  background: var(--accent-green-wash);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.5px;
 }
 
 .term-line {
-  margin-bottom: 6px;
+  color: #e2e8f0;
+  margin-bottom: 7px;
   word-break: break-all;
 }
 
-.term-dim { color: var(--muted); }
-.term-cyan { color: var(--accent); }
-.term-green { color: var(--accent-green); }
-.term-purple { color: var(--accent-purple); }
-.term-amber { color: var(--accent-amber); }
+.term-dim { color: #8b949e; }
+.term-cyan { color: #38bdf8; font-weight: 600; }
+.term-green { color: #4ade80; font-weight: 600; }
+.term-purple { color: #c084fc; font-weight: 600; }
+.term-amber { color: #fbbf24; font-weight: 600; }
 .term-bold { font-weight: 600; color: #fff; }
 
 .term-prompt {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 10px;
-  color: var(--accent);
+  margin-top: 12px;
+  color: #38bdf8;
+  font-weight: 600;
 }
 
 .cursor-blink {
   display: inline-block;
   width: 7px;
   height: 14px;
-  background: var(--accent);
+  background: #38bdf8;
   animation: blink 1s step-start infinite;
 }
 
@@ -1979,59 +2030,96 @@ button {
   border-color: #1d4ed8;
   color: #1d4ed8;
 }
+/* ==========================================================================
+   LIGHT THEME CONSOLE & OVERRIDES (HIGH CONTRAST & CLEAN STYLING)
+   ========================================================================== */
 
-/* Light Theme Terminal Window - Real Dark Console */
 :root[data-theme="light"] .terminal-window {
-  background: #0b101b;
-  border: 1px solid #1e293b;
-  box-shadow: 0 14px 32px -4px rgba(15, 23, 42, 0.3);
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05), inset 0 1px 0 #ffffff;
+  color: #0f172a;
 }
 
 :root[data-theme="light"] .terminal-bar {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+:root[data-theme="light"] .term-dot {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.10);
 }
 
 :root[data-theme="light"] .term-title {
-  color: #94a3b8;
+  color: #475569;
+  font-weight: 600;
+}
+
+:root[data-theme="light"] .term-badge {
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid rgba(4, 120, 87, 0.25);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .term-line {
+  color: #1e293b;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 7px;
 }
 
 :root[data-theme="light"] .term-dim {
-  color: #94a3b8;
+  color: #64748b;
 }
 
 :root[data-theme="light"] .term-cyan {
-  color: #38bdf8;
+  color: #0284c7;
+  font-weight: 700;
 }
 
 :root[data-theme="light"] .term-green {
-  color: #4ade80;
+  color: #059669;
+  font-weight: 700;
 }
 
 :root[data-theme="light"] .term-purple {
-  color: #c084fc;
+  color: #7c3aed;
+  font-weight: 700;
 }
 
 :root[data-theme="light"] .term-amber {
-  color: #fbbf24;
+  color: #b45309;
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .term-bold {
+  color: #0f172a;
+  font-weight: 700;
 }
 
 :root[data-theme="light"] .term-prompt {
-  color: #38bdf8;
+  color: #0284c7;
+  font-weight: 700;
+  margin-top: 12px;
 }
 
 :root[data-theme="light"] .cursor-blink {
-  background: #38bdf8;
+  background: #0284c7;
 }
 
 :root[data-theme="light"] .tel-tab {
-  background: #f1f5f9;
-  color: #64748b;
-  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
 }
 
 :root[data-theme="light"] .tel-tab:hover {
   color: #0f172a;
-  background: #e2e8f0;
+  background: #f1f5f9;
+  border-color: #94a3b8;
 }
 
 :root[data-theme="light"] .tel-tab.active {
@@ -2039,14 +2127,104 @@ button {
   color: #ffffff;
   border-color: #1d4ed8;
   font-weight: 600;
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
 }
 
 :root[data-theme="light"] .mini-stat-box {
-  background: #f8fafc;
-  border-color: #e2e8f0;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 }
 
-/* Light Theme Filter Buttons */
+:root[data-theme="light"] .mini-stat-val {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+:root[data-theme="light"] .mini-stat-lbl {
+  color: #475569;
+  font-weight: 600;
+}
+
+:root[data-theme="light"] .glass-level-control {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+:root[data-theme="light"] .glass-btn {
+  color: #64748b;
+}
+
+:root[data-theme="light"] .glass-btn:hover {
+  color: #0f172a;
+}
+
+:root[data-theme="light"] .glass-btn.active {
+  background: #1d4ed8;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.35);
+}
+
+:root[data-theme="light"] .theme-toggle-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+:root[data-theme="light"] .theme-toggle-btn:hover {
+  background: #f1f5f9;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+}
+
+:root[data-theme="light"] .telemetry-pill {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-theme="light"] .nav-link {
+  color: #64748b;
+}
+
+:root[data-theme="light"] .nav-link:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+:root[data-theme="light"] .nav-link.active {
+  color: #1d4ed8;
+  background: rgba(29, 78, 216, 0.09);
+  font-weight: 600;
+}
+
+:root[data-theme="light"] .role-badge {
+  background: rgba(29, 78, 216, 0.09);
+  color: #1d4ed8;
+  border-color: rgba(29, 78, 216, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .intel-badge {
+  background: rgba(4, 120, 87, 0.09);
+  color: #047857;
+  border-color: rgba(4, 120, 87, 0.28);
+  font-weight: 700;
+}
+
+:root[data-theme="light"] .btn-secondary {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+:root[data-theme="light"] .btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+}
+
 :root[data-theme="light"] .filter-btn {
   background: #ffffff;
   border-color: #cbd5e1;
@@ -2065,11 +2243,6 @@ button {
   border-color: #1d4ed8;
   box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
   font-weight: 600;
-}
-
-/* Light Theme Project Cards & Badges */
-:root[data-theme="light"] .project-card {
-  /* Inherits dynamic --panel from .glass-panel to respond to L1-L5 */
 }
 
 :root[data-theme="light"] .project-card:hover {
@@ -2143,176 +2316,22 @@ button {
   color: #1d4ed8;
 }
 
-:root[data-theme="light"] .copy-btn {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  color: #475569;
-}
-
-:root[data-theme="light"] .copy-btn:hover {
-  background: #f1f5f9;
+:root[data-theme="light"] .contact-item {
   color: #0f172a;
-  border-color: #1d4ed8;
 }
 
+:root[data-theme="light"] .contact-item a {
+  color: #0f172a;
+}
 
-/* Discord Header Pill */
-.btn-discord-header {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(88, 101, 242, 0.15);
-  border: 1px solid rgba(88, 101, 242, 0.35);
+:root[data-theme="light"] .contact-item a:hover {
+  color: #1d4ed8;
+}
+
+:root[data-theme="light"] .contact-item.discord-item svg {
   color: #5865F2;
-  padding: 6px 12px;
-  border-radius: var(--radius-pill);
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
 }
 
-.btn-discord-header:hover {
-  background: rgba(88, 101, 242, 0.25);
-  border-color: #5865F2;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(88, 101, 242, 0.25);
-}
-
-.btn-discord-header strong {
-  font-family: var(--font-mono);
-  color: var(--fg-strong);
-}
-
-/* Discord Hero Role Badge */
-.discord-badge-pill {
-  cursor: pointer;
-  background: rgba(88, 101, 242, 0.12) !important;
-  color: #5865F2 !important;
-  border-color: rgba(88, 101, 242, 0.35) !important;
-  transition: var(--transition);
-}
-
-.discord-badge-pill:hover {
-  background: rgba(88, 101, 242, 0.22) !important;
-  border-color: #5865F2 !important;
-  transform: translateY(-1px);
-}
-
-.copy-tag-mini {
-  font-size: 9px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  text-transform: uppercase;
-  background: rgba(88, 101, 242, 0.25);
-  color: #5865F2;
-  padding: 1px 5px;
-  border-radius: 4px;
-  margin-left: 2px;
-  transition: var(--transition);
-}
-
-.copy-tag-mini.copied, .copy-subtag.copied {
-  background: #10b981 !important;
-  color: #ffffff !important;
-}
-
-/* Hero Inline Contact Row */
-.hero-contact-inline {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
-  font-size: 13px;
-  color: var(--muted);
-  flex-wrap: wrap;
-}
-
-.inline-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.inline-item svg {
-  color: var(--accent);
-}
-
-.inline-item a {
-  color: var(--fg-strong);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.inline-item a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.inline-discord-copy {
-  cursor: pointer;
-  padding: 2px 8px;
-  border-radius: 6px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  transition: var(--transition);
-}
-
-.inline-discord-copy:hover {
-  background: var(--surface-hover);
-  border-color: #5865F2;
-  color: var(--fg-strong);
-}
-
-.inline-discord-copy svg {
-  color: #5865F2 !important;
-}
-
-.inline-bullet {
-  color: var(--line-strong);
-  font-weight: 700;
-}
-
-.copy-subtag {
-  font-size: 9px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  text-transform: uppercase;
-  background: rgba(88, 101, 242, 0.15);
-  color: #5865F2;
-  padding: 1px 5px;
-  border-radius: 3px;
-  margin-left: 4px;
-  transition: var(--transition);
-}
-
-/* Light Theme Overrides for Header & Inline Discord */
-:root[data-theme="light"] .btn-discord-header {
-  background: #ffffff;
-  border-color: rgba(88, 101, 242, 0.35);
-  color: #5865F2;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-:root[data-theme="light"] .btn-discord-header:hover {
-  background: rgba(88, 101, 242, 0.08);
-  border-color: #5865F2;
-}
-
-:root[data-theme="light"] .discord-badge-pill {
-  background: rgba(88, 101, 242, 0.08) !important;
-  border-color: rgba(88, 101, 242, 0.3) !important;
-  color: #4338ca !important;
-}
-
-:root[data-theme="light"] .inline-discord-copy {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  color: #334155;
-}
-
-:root[data-theme="light"] .inline-discord-copy:hover {
-  background: #f8fafc;
-  border-color: #4338ca;
+:root[data-theme="light"] .discord-handle {
   color: #0f172a;
 }

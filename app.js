@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTerminalTabs();
   initProjectFilters();
   initModal();
-  initDiscordCopy();
 });
 
 /* ==========================================================================
@@ -306,98 +305,4 @@ function initModal() {
       if (id) openModal(id);
     });
   });
-}
-
-/* ==========================================================================
-   DISCORD USERNAME COPY SYSTEM
-   ========================================================================== */
-
-function initDiscordCopy() {
-  function copyUsername(btn, tagEl) {
-    const username = 'revath';
-
-    function onSuccess() {
-      const target = tagEl || btn;
-      const originalText = target.textContent;
-      target.textContent = 'Copied!';
-      target.classList.add('copied');
-      if (btn !== target) btn.classList.add('copied');
-
-      setTimeout(() => {
-        target.textContent = originalText;
-        target.classList.remove('copied');
-        if (btn !== target) btn.classList.remove('copied');
-      }, 2000);
-    }
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(username).then(onSuccess).catch(fallback);
-    } else {
-      fallback();
-    }
-
-    function fallback() {
-      const textarea = document.createElement('textarea');
-      textarea.value = username;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
-      try {
-        document.execCommand('copy');
-        onSuccess();
-      } catch (err) {
-        console.error('Failed to copy username', err);
-      }
-      document.body.removeChild(textarea);
-    }
-  }
-
-  // Header button
-  const headerBtn = document.getElementById('headerDiscordBtn');
-  if (headerBtn) {
-    headerBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      copyUsername(headerBtn, headerBtn.querySelector('strong'));
-    });
-  }
-
-  // Hero badge pill
-  const badgeBtn = document.getElementById('heroBadgeDiscord');
-  const badgeTag = document.getElementById('heroBadgeDiscordTag');
-  if (badgeBtn) {
-    badgeBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      copyUsername(badgeBtn, badgeTag);
-    });
-  }
-
-  // Hero bio inline copy
-  const bioBtn = document.getElementById('heroBioDiscord');
-  const bioTag = document.getElementById('heroBioDiscordTag');
-  if (bioBtn) {
-    bioBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      copyUsername(bioBtn, bioTag);
-    });
-  }
-
-  // Hero primary copy button
-  const heroBtn = document.getElementById('heroDiscordBtn');
-  const heroTag = document.getElementById('heroDiscordTag');
-  if (heroBtn) {
-    heroBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      copyUsername(heroBtn, heroTag);
-    });
-  }
-
-  // Footer copy button
-  const footerBtn = document.getElementById('footerDiscordCopyBtn');
-  if (footerBtn) {
-    footerBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      copyUsername(footerBtn, footerBtn);
-    });
-  }
 }
