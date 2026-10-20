@@ -1,0 +1,6 @@
+# Ignore local CV with personal and employer-specific data
+Jakub_Zurko_CV_2026_v2.html
+*.pdf
+*.log
+.DS_Store
+Thumbs.db

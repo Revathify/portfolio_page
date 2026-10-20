@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-glass-level="3" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jakub (Revathify) — Linux Integration, Infrastructure &amp; DevOps</title>
+  
+  <!-- Canonical & SEO -->
+  <link rel="canonical" href="https://portfolio.revathify.org">
+  <meta name="description" content="Senior Linux Integration &amp; DevOps Engineer. Infrastructure automation, OS golden-image delivery, bare-metal GPU validation, and software development.">
+  <meta name="keywords" content="Revathify, Jakub Zurko, Linux Integration, DevOps, Infrastructure, Golden Images, GPU Validation, WoW Addons, React, Fastify">
+  <meta name="author" content="Jakub (Revathify)">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Jakub (Revathify) — Portfolio &amp; Engineering Systems">
+  <meta property="og:description" content="Infrastructure automation, golden-image delivery across Linux &amp; Windows, bare-metal GPU validation, and software projects.">
+  <meta property="og:url" content="https://portfolio.revathify.org">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jakub (Revathify) — Portfolio">
+  <meta name="twitter:description" content="Linux Integration, Infrastructure Automation, and Open-Source Software.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2312233d'/><text x='50%' y='55%' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-size='48' font-weight='700' fill='%2382b1ff'>R</text></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==================== TOP NAVIGATION & TELEMETRY HEADER ==================== -->
+  <header class="header-wrapper">
+    <nav class="navbar glass-panel">
+      <!-- Brand & Telemetry -->
+      <div class="brand">
+        <a href="#overview" class="brand-avatar">R</a>
+        <div class="brand-text">
+          <span class="brand-name">
+            Jakub
+            <span class="brand-handle">@Revathify</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Real-Time Telemetry Pill -->
+      <div class="telemetry-pill">
+        <span class="status-dot"></span>
+        <span>Systems Online</span>
+        <span>·</span>
+        <span id="liveClock">--:--:-- UTC</span>
+      </div>
+
+      <!-- Main Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#overview" class="nav-link active">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Action Controls -->
+      <div class="header-actions">
+        <!-- Glass Level Selector (L1-L5) -->
+        <div class="glass-level-control" title="Liquid Glass Intensity (L1-L5)">
+          <button class="glass-btn" data-level="1">L1</button>
+          <button class="glass-btn" data-level="2">L2</button>
+          <button class="glass-btn active" data-level="3">L3</button>
+          <button class="glass-btn" data-level="4">L4</button>
+          <button class="glass-btn" data-level="5">L5</button>
+        </div>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme"></button>
+
+        <!-- GitHub Profile Quick Link -->
+        <a href="https://github.com/Revathify" target="_blank" class="btn-cv-pill" aria-label="GitHub Profile">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== MAIN CONTAINER ==================== -->
+  <main class="page-container">
+
+    <!-- ==================== HERO & CONSOLE SECTION ==================== -->
+    <section class="hero-grid" id="overview">
+      <!-- Left Hero Card -->
+      <div class="hero-card glass-panel">
+        <div>
+          <div class="hero-badge-wrap">
+            <span class="role-badge">Senior Linux Integration &amp; DevOps</span>
+            <span class="role-badge intel-badge">Infrastructure &amp; Validation</span>
+          </div>
+
+          <h1 class="hero-title">
+            Infrastructure, Automation<br>
+            <span class="gradient-text">&amp; Software Craftsmanship</span>
+          </h1>
+
+          <p class="hero-bio">
+            I work as a <strong>Senior Linux Integration Engineer at Intel</strong>, where I am responsible for validation infrastructure, multi-distro golden-image automation across Linux and Windows, and bare-metal GPU driver acceleration workflows. In addition to enterprise infrastructure, I design and build full-stack web and mobile applications, local telemetry dashboards, and open-source game modifications.
+          </p>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            Explore Projects
+          </a>
+          <a href="https://github.com/Revathify" target="_blank" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/jakubzurko" target="_blank" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Interactive Console Card -->
+      <div class="telemetry-card glass-panel">
+        <div class="telemetry-header">
+          <div class="telemetry-title-wrap">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <span>ACTIVE WORKSPACES</span>
+          </div>
+
+          <div class="telemetry-tabs">
+            <button class="tel-tab active" data-tab="infra">Infrastructure</button>
+            <button class="tel-tab" data-tab="addons">WoW Addons</button>
+            <button class="tel-tab" data-tab="tools">Dev Projects</button>
+          </div>
+        </div>
+
+        <div class="terminal-window">
+          <div id="terminalOutput">
+            <div class="term-line"><span class="term-cyan">[INFRASTRUCTURE]</span> Orchestrating automated multi-OS provisioning pipelines...</div>
+            <div class="term-line"><span class="term-green">✔ OS PLATFORMS:</span> Automated golden-image builds across Linux &amp; Windows families</div>
+            <div class="term-line"><span class="term-cyan">✔ GATING SUITES:</span> Validation assertions running unattended in fast-feedback loops</div>
+            <div class="term-line"><span class="term-purple">✔ BARE-METAL:</span> GPU acceleration stack validation and driver packaging</div>
+            <div class="term-line"><span class="term-dim">-- Status: Infrastructure pipelines healthy &amp; automated</span></div>
+          </div>
+
+          <div class="term-prompt">
+            <span>revath@node:~$</span>
+            <span class="cursor-blink"></span>
+          </div>
+        </div>
+
+        <div class="telemetry-mini-stats">
+          <div class="mini-stat-box">
+            <span class="mini-stat-val">Multi-OS</span>
+            <span class="mini-stat-lbl">Linux &amp; Windows</span>
+          </div>
+          <div class="mini-stat-box">
+            <span class="mini-stat-val">CI/CD</span>
+            <span class="mini-stat-lbl">Automated Gates</span>
+          </div>
+          <div class="mini-stat-box">
+            <span class="mini-stat-val">Full-Stack</span>
+            <span class="mini-stat-lbl">Web &amp; Native Apps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS SHOWCASE ==================== -->
+    <section class="projects-section" id="projects">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">PROJECT PORTFOLIO</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-desc">Public open-source tools, modular game addons, and software engineering prototypes.</p>
+        </div>
+      </div>
+
+      <!-- Filter Pills -->
+      <div class="projects-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="public">Public Repositories</button>
+        <button class="filter-btn" data-filter="gaming">WoW Addons</button>
+        <button class="filter-btn" data-filter="fullstack">Web &amp; Mobile</button>
+        <button class="filter-btn" data-filter="private">Private Prototypes</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+
+        <!-- 1. Revath's Enchanted Frames (Public WoW Addon Suite) -->
+        <div class="project-card glass-panel" data-category="gaming public" data-project-id="addons">
+          <div>
+            <div class="proj-top">
+              <div class="proj-icon-box">
+                <img src="assets/enchanted-frames-icon.png" alt="Enchanted Frames Icon" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 40 40\'><rect width=\'40\' height=\'40\' fill=\'%231a2333\'/><circle cx=\'20\' cy=\'20\' r=\'12\' fill=\'%23b495ff\'/></svg>'">
+              </div>
+              <span class="proj-status-badge status-modular">Public Suite</span>
+            </div>
+
+            <h3 class="proj-title">
+              Revath's Enchanted Frames
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </h3>
+
+            <p class="proj-desc">
+              Modular World of Warcraft Retail addon suite combining Enchanted Mailbox, Macro Workshop, Tooltips (account-wide item aggregation), Weekly Planner, and compact Whispers under unified Blizzard Settings.
+            </p>
+
+            <div class="proj-meta-chips">
+              <span class="meta-chip highlight">Lua</span>
+              <span class="meta-chip">WoW FrameXML</span>
+              <span class="meta-chip">LibSharedMedia</span>
+              <span class="meta-chip">Jenkins CI Automation</span>
+            </div>
+          </div>
+
+          <div class="proj-card-footer">
+            <span class="proj-link-text">Details &amp; Modules →</span>
+            <a href="https://github.com/Revathify/Revaths-Enchanted-Frames" target="_blank" class="proj-gh-link" title="View Repository on GitHub" aria-label="Enchanted Frames Repository">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Revath's Macro Workshop (Public WoW Addon) -->
+        <div class="project-card glass-panel" data-category="gaming public" data-project-id="macro">
+          <div>
+            <div class="proj-top">
+              <div class="proj-icon-box" style="background: rgba(94, 211, 160, 0.12); color: var(--accent-green);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </div>
+              <span class="proj-status-badge status-active">Public Addon</span>
+            </div>
+
+            <h3 class="proj-title">
+              Revath's Macro Workshop
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </h3>
+
+            <p class="proj-desc">
+              Standalone World of Warcraft macro editor with separate account and character libraries, curated community templates, icon browser, and syntax suggestions.
+            </p>
+
+            <div class="proj-meta-chips">
+              <span class="meta-chip highlight">Lua</span>
+              <span class="meta-chip">Blizzard API</span>
+              <span class="meta-chip">Template System</span>
+              <span class="meta-chip">Open Source</span>
+            </div>
+          </div>
+
+          <div class="proj-card-footer">
+            <span class="proj-link-text">Details &amp; Features →</span>
+            <a href="https://github.com/Revathify/revaths_macro_workshop" target="_blank" class="proj-gh-link" title="View Repository on GitHub" aria-label="Macro Workshop Repository">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. RPI-Dashboard (Public System & UI) -->
+        <div class="project-card glass-panel" data-category="public" data-project-id="rpi">
+          <div>
+            <div class="proj-top">
+              <div class="proj-icon-box" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-amber);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <span class="proj-status-badge status-prod">Public Workspace</span>
+            </div>
+
+            <h3 class="proj-title">
+              RPI-Dashboard
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </h3>
+
+            <p class="proj-desc">
+              Custom liquid-glass local dashboard operating 24/7 on ARM64 Raspberry Pi. Hardware telemetry, multi-repository project sync, and developer task roadmaps.
+            </p>
+
+            <div class="proj-meta-chips">
+              <span class="meta-chip highlight">React / Vite</span>
+              <span class="meta-chip">Liquid Glass CSS</span>
+              <span class="meta-chip">ARM64 Raspberry Pi</span>
+              <span class="meta-chip">Telemetry</span>
+            </div>
+          </div>
+
+          <div class="proj-card-footer">
+            <span class="proj-link-text">Architecture &amp; Features →</span>
+            <a href="https://github.com/Revathify/RPI-Dashboard" target="_blank" class="proj-gh-link" title="View Repository on GitHub" aria-label="RPI-Dashboard Repository">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. WCFLA (Public Desktop & Web) -->
+        <div class="project-card glass-panel" data-category="public" data-project-id="wcfla">
+          <div>
+            <div class="proj-top">
+              <div class="proj-icon-box" style="background: rgba(239, 145, 179, 0.12); color: var(--accent-pink);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </div>
+              <span class="proj-status-badge status-prod">Public App</span>
+            </div>
+
+            <h3 class="proj-title">
+              Revath's Log Analyzer Tool
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </h3>
+
+            <p class="proj-desc">
+              Warcraft Logs V2 combat encounter analytics for Windows and browser. Features OAuth 2.0 PKCE, parse comparisons, death review timeline, and interrupt/dispel evidence.
+            </p>
+
+            <div class="proj-meta-chips">
+              <span class="meta-chip highlight">Electron</span>
+              <span class="meta-chip">GraphQL API</span>
+              <span class="meta-chip">OAuth 2.0 PKCE</span>
+              <span class="meta-chip">Windows Installer</span>
+            </div>
+          </div>
+
+          <div class="proj-card-footer">
+            <span class="proj-link-text">Analytics Engine →</span>
+            <a href="https://github.com/Revathify/WCFLA" target="_blank" class="proj-gh-link" title="View Repository on GitHub" aria-label="WCFLA Repository">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. BBinder (Private Prototype) -->
+        <div class="project-card glass-panel" data-category="fullstack private" data-project-id="bbinder">
+          <div>
+            <div class="proj-top">
+              <div class="proj-icon-box">
+                <img src="assets/bbinder-icon.png" alt="BBinder Logo" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 40 40\'><rect width=\'40\' height=\'40\' fill=\'%231a2333\'/><path d=\'M10 28 L20 12 L30 28 Z\' fill=\'%2382b1ff\'/></svg>'">
+              </div>
+              <span class="proj-status-badge status-shipped">Private Prototype</span>
+            </div>
+
+            <h3 class="proj-title">
+              BBinder
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </h3>
+
+            <p class="proj-desc">
+              Motorcycle community, garage, and trip discovery platform. Built with a privacy-first proximity model (no background GPS tracking), motorcycle attribute filtering, and local OSRM road routing.
+            </p>
+
+            <div class="proj-meta-chips">
+              <span class="meta-chip highlight">React Native</span>
+              <span class="meta-chip">Fastify</span>
+              <span class="meta-chip">PostgreSQL</span>
+              <span class="meta-chip">OSRM Routing</span>
+              <span class="meta-chip">Privacy Focus</span>
+            </div>
+          </div>
+
+          <div class="proj-card-footer">
+            <span class="proj-link-text">Read Brief Overview →</span>
+            <span style="font-size:11px;color:var(--muted);font-family:var(--font-mono);">Private Repository</span>
+          </div>
+        </div>
+
+        <!-- 6. AI DevOps & Automation Workflows -->
+        <div class="project-card glass-panel" data-category="public" data-project-id="ai_devops">
+          <div>
+            <div class="proj-top">
+              <div class="proj-icon-box" style="background: rgba(180, 149, 255, 0.14); color: var(--accent-purple);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12L2.1 12.5"></path><path d="M12 12l4.5 8"></path></svg>
+              </div>
+              <span class="proj-status-badge status-active">Workflow Platform</span>
+            </div>
+
+            <h3 class="proj-title">
+              DevOps Workflow Automation
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </h3>
+
+            <p class="proj-desc">
+              Multi-agent orchestration and automation tooling designed to accelerate infrastructure workflows, automated CI log triage, and configuration consistency.
+            </p>
+
+            <div class="proj-meta-chips">
+              <span class="meta-chip highlight">Automation</span>
+              <span class="meta-chip">CI/CD Tooling</span>
+              <span class="meta-chip">Log RCA</span>
+              <span class="meta-chip">Python &amp; Shell</span>
+            </div>
+          </div>
+
+          <div class="proj-card-footer">
+            <span class="proj-link-text">Workflow Overview →</span>
+            <a href="https://github.com/Revathify" target="_blank" class="proj-gh-link" title="View Profile on GitHub" aria-label="GitHub Profile">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== BRIEF EXPERIENCE & FOCUS ==================== -->
+    <section class="experience-section" id="experience">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">PROFESSIONAL FOCUS</span>
+          <h2 class="section-title">Experience &amp; Background</h2>
+          <p class="section-desc">A brief summary of primary roles and technical competencies.</p>
+        </div>
+      </div>
+
+      <div class="experience-grid">
+        <!-- High-level Roles -->
+        <div class="timeline-card glass-panel">
+          <div class="timeline">
+            <!-- Intel -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="job-header">
+                <div>
+                  <span class="job-role">Senior Linux Integration Engineer</span> — 
+                  <span class="job-company">Intel</span>
+                </div>
+                <span class="job-date">2022 – Present</span>
+              </div>
+              <p style="font-size:13px;color:var(--fg);margin-top:6px;line-height:1.55;">
+                Responsible for validation infrastructure, multi-OS golden-image build pipelines across Linux and Windows, and bare-metal GPU automation and driver packaging.
+              </p>
+            </div>
+
+            <!-- Nokia -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="job-header">
+                <div>
+                  <span class="job-role">Technical Leader / Software Integration Specialist</span> — 
+                  <span class="job-company">Nokia</span>
+                </div>
+                <span class="job-date">2018 – 2022</span>
+              </div>
+              <p style="font-size:13px;color:var(--fg);margin-top:6px;line-height:1.55;">
+                Led automated test integration for LTE/5G features, maintained physical hardware test lines, and spearheaded early dual-connectivity test cases.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Overview -->
+        <div class="skills-card glass-panel">
+          <div class="skill-category">
+            <span class="skill-cat-title">Infrastructure &amp; CI/CD</span>
+            <div class="chips-cloud">
+              <span class="skill-chip hot">Golden-Image Automation</span>
+              <span class="skill-chip hot">Packer &amp; Ansible</span>
+              <span class="skill-chip">Jenkins Pipelines</span>
+              <span class="skill-chip">GitHub Actions</span>
+              <span class="skill-chip">Docker</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <span class="skill-cat-title">Systems &amp; GPU acceleration</span>
+            <div class="chips-cloud">
+              <span class="skill-chip">Linux Kernel &amp; DKMS</span>
+              <span class="skill-chip">Secure Boot Signing</span>
+              <span class="skill-chip">Level-Zero &amp; OpenCL</span>
+              <span class="skill-chip">Multi-Distro Packaging</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <span class="skill-cat-title">Languages &amp; Stacks</span>
+            <div class="chips-cloud">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Bash / Shell</span>
+              <span class="skill-chip">PowerShell</span>
+              <span class="skill-chip">Lua</span>
+              <span class="skill-chip">React / React Native</span>
+              <span class="skill-chip">Fastify &amp; Node.js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER & CONTACT ==================== -->
+    <footer class="footer-panel glass-panel" id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Jakub (Revathify)</h3>
+          <p>
+            Senior Linux Integration &amp; DevOps Engineer.<br>
+            Portfolio hosted with liquid glass aesthetics at <a href="https://portfolio.revathify.org" style="color:var(--accent);">portfolio.revathify.org</a>.
+          </p>
+        </div>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <a href="https://github.com/Revathify" target="_blank">github.com/Revathify</a>
+          </div>
+
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.3 18.3H5.6V9.7h2.7v8.6zM6.9 8.6a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2zm11.5 9.7h-2.7v-4.2c0-1-.4-1.7-1.3-1.7-.7 0-1.1.5-1.3 1-.1.2-.1.4-.1.7v4.2H10.3s.04-7.6 0-8.6H13v1.2c.4-.6 1-1.4 2.5-1.4 1.8 0 3 1.2 3 3.7v5.1z"/></svg>
+            <a href="https://www.linkedin.com/in/jakubzurko" target="_blank">linkedin.com/in/jakubzurko</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Jakub (Revathify). All rights reserved.</div>
+        <div class="rpi-style-badge">
+          <span>●</span>
+          <span>Crafted in RPI-Dashboard Liquid Glass Style</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ==================== MODAL DEEP-DIVE DIALOG ==================== -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-badge" id="modalBadge">PROJECT DETAILS</div>
+        <h3 class="modal-title" id="modalTitle">Project Title</h3>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <!-- Injected via app.js -->
+      </div>
+
+      <div class="modal-actions">
+        <a href="#" target="_blank" class="btn-primary" id="modalRepoBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          Open GitHub Repository
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
