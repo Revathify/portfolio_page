@@ -106,8 +106,8 @@ const TERMINAL_DATA = {
 `,
   addons: `
 <div class="term-line"><span class="term-purple">[WOW-ADDON-SUITE]</span> Synchronizing World of Warcraft Retail modules...</div>
-<div class="term-line"><span class="term-green">✔ ENCHANTED FRAMES:</span> Mailbox, Macros, Tooltips, Weekly Planner & Whispers</div>
-<div class="term-line"><span class="term-cyan">✔ MACRO WORKSHOP:</span> Account & character separation with curated community templates</div>
+<div class="term-line"><span class="term-green">✔ ENCHANTED FRAMES:</span> Core Suite combining Macro Workshop, Mailbox, Tooltips, Weekly Planner & Whispers</div>
+<div class="term-line"><span class="term-cyan">✔ MACRO ENGINE:</span> Standalone-grade macro editor with account & character separation</div>
 <div class="term-line"><span class="term-amber">✔ AUTOMATION:</span> Jenkins CI packaging and release generation on Git push</div>
 <div class="term-line"><span class="term-dim">-- Public repositories live on GitHub @Revathify</span></div>
 `,
@@ -228,11 +228,11 @@ const PROJECT_MODAL_DATA = {
   addons: {
     badge: "Open Source / WoW Addon Suite",
     title: "Revath's Enchanted Frames — Modular Retail Addon Suite",
-    content: `
-      <p>A modular World of Warcraft Retail addon suite combining productivity tools, customizable skins, and account-wide tracking under a unified Blizzard Settings category.</p>
+    content: `      <p>A modular World of Warcraft Retail addon suite combining productivity tools, customizable skins, and account-wide tracking under a unified Blizzard Settings category.</p>
       
-      <h4>Included Modules:</h4>
+      <h4>Included Flagship Modules:</h4>
       <ul>
+        <li><strong>Macro Workshop:</strong> Full-featured macro editor with separate account and character libraries, syntax suggestions, and curated community templates.</li>
         <li><strong>Enchanted Mailbox:</strong> Inbox management, contact quick-fill, and alt-character mail routing.</li>
         <li><strong>Enchanted Tooltips:</strong> Account-wide bag, bank, and Warband item count aggregation.</li>
         <li><strong>Enchanted Weekly Planner:</strong> Character-specific lockouts and weekly objective trackers.</li>
@@ -241,31 +241,10 @@ const PROJECT_MODAL_DATA = {
       </ul>
 
       <h4>Tech Stack:</h4>
-      <p>Lua, World of Warcraft FrameXML, LibSharedMedia, Jenkins CI.</p>
-    `,
+      <p>Lua, World of Warcraft FrameXML, LibSharedMedia, Jenkins CI.</p>`,
     isPrivate: false,
     repoUrl: "https://github.com/Revathify/Revaths-Enchanted-Frames"
-  },
-  macro: {
-    badge: "Open Source / WoW Addon",
-    title: "Revath's Macro Workshop — Macro Editor & Template Library",
-    content: `
-      <p>A standalone World of Warcraft macro editor with separate account and character libraries, curated community templates, and syntax checking.</p>
-      
-      <h4>Key Features:</h4>
-      <ul>
-        <li><strong>Dual Store:</strong> Clear separation between Blizzard account-wide and character-specific macro limits.</li>
-        <li><strong>Curated Templates:</strong> Pre-validated community templates with placeholder inspection before saving.</li>
-        <li><strong>Icon Browser:</strong> Integrated macro/item icon picker supporting Blizzard icons and LibSharedMedia assets.</li>
-      </ul>
-
-      <h4>Tech Stack:</h4>
-      <p>Lua, World of Warcraft FrameXML, LibSharedMedia.</p>
-    `,
-    isPrivate: false,
-    repoUrl: "https://github.com/Revathify/revaths_macro_workshop"
-  }
-};
+  }};
 
 function initModal() {
   const backdrop = document.getElementById('projectModal');
@@ -338,15 +317,17 @@ function initDiscordCopy() {
     const username = 'revath';
 
     function onSuccess() {
-      if (tagEl) {
-        const original = tagEl.textContent;
-        tagEl.textContent = 'Copied!';
-        tagEl.classList.add('copied');
-        setTimeout(() => {
-          tagEl.textContent = original;
-          tagEl.classList.remove('copied');
-        }, 2000);
-      }
+      const target = tagEl || btn;
+      const originalText = target.textContent;
+      target.textContent = 'Copied!';
+      target.classList.add('copied');
+      if (btn !== target) btn.classList.add('copied');
+
+      setTimeout(() => {
+        target.textContent = originalText;
+        target.classList.remove('copied');
+        if (btn !== target) btn.classList.remove('copied');
+      }, 2000);
     }
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -372,14 +353,51 @@ function initDiscordCopy() {
     }
   }
 
+  // Header button
+  const headerBtn = document.getElementById('headerDiscordBtn');
+  if (headerBtn) {
+    headerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyUsername(headerBtn, headerBtn.querySelector('strong'));
+    });
+  }
+
+  // Hero badge pill
+  const badgeBtn = document.getElementById('heroBadgeDiscord');
+  const badgeTag = document.getElementById('heroBadgeDiscordTag');
+  if (badgeBtn) {
+    badgeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyUsername(badgeBtn, badgeTag);
+    });
+  }
+
+  // Hero bio inline copy
+  const bioBtn = document.getElementById('heroBioDiscord');
+  const bioTag = document.getElementById('heroBioDiscordTag');
+  if (bioBtn) {
+    bioBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyUsername(bioBtn, bioTag);
+    });
+  }
+
+  // Hero primary copy button
   const heroBtn = document.getElementById('heroDiscordBtn');
   const heroTag = document.getElementById('heroDiscordTag');
   if (heroBtn) {
-    heroBtn.addEventListener('click', () => copyUsername(heroBtn, heroTag));
+    heroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyUsername(heroBtn, heroTag);
+    });
   }
 
+  // Footer copy button
   const footerBtn = document.getElementById('footerDiscordCopyBtn');
   if (footerBtn) {
-    footerBtn.addEventListener('click', () => copyUsername(footerBtn, footerBtn));
+    footerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyUsername(footerBtn, footerBtn);
+    });
   }
 }

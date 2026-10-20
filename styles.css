@@ -156,45 +156,65 @@
   --accent-pink-wash: rgba(190, 24, 93, 0.09);
 }
 
-/* Light Theme Glass Levels (L1-L5) */
+/* Light Theme Glass Levels (L1-L5) — High Dynamic Range */
 :root[data-theme="light"][data-glass-level="1"] {
-  --glass-blur: 8px;
-  --glass-saturate: 110%;
-  --panel: rgba(255, 255, 255, 0.96);
-  --panel-border: rgba(203, 213, 225, 0.95);
-  --shadow: 0 8px 20px -3px rgba(15, 23, 42, 0.05);
+  --glass-blur: 0px;
+  --glass-saturate: 100%;
+  --panel: #ffffff;
+  --panel-top: #ffffff;
+  --panel-border: #cbd5e1;
+  --panel-highlight: #ffffff;
+  --panel-sheen: transparent;
+  --shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.05), 0 1px 2px 0 rgba(15, 23, 42, 0.03);
+  --topbar-bg: #ffffff;
 }
 
 :root[data-theme="light"][data-glass-level="2"] {
-  --glass-blur: 14px;
-  --glass-saturate: 130%;
-  --panel: rgba(255, 255, 255, 0.92);
+  --glass-blur: 10px;
+  --glass-saturate: 125%;
+  --panel: rgba(255, 255, 255, 0.82);
+  --panel-top: rgba(255, 255, 255, 0.95);
   --panel-border: rgba(203, 213, 225, 0.90);
-  --shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.07);
+  --panel-highlight: #ffffff;
+  --panel-sheen: rgba(255, 255, 255, 0.40);
+  --shadow: 0 8px 22px -3px rgba(15, 23, 42, 0.07);
+  --topbar-bg: rgba(255, 255, 255, 0.90);
 }
 
 :root[data-theme="light"][data-glass-level="3"] {
   --glass-blur: 20px;
-  --glass-saturate: 150%;
-  --panel: rgba(255, 255, 255, 0.88);
-  --panel-border: rgba(203, 213, 225, 0.85);
-  --shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --glass-saturate: 160%;
+  --panel: rgba(255, 255, 255, 0.60);
+  --panel-top: rgba(255, 255, 255, 0.90);
+  --panel-border: rgba(148, 163, 184, 0.50);
+  --panel-highlight: #ffffff;
+  --panel-sheen: rgba(255, 255, 255, 0.65);
+  --shadow: 0 14px 32px -6px rgba(15, 23, 42, 0.10), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --topbar-bg: rgba(255, 255, 255, 0.78);
 }
 
 :root[data-theme="light"][data-glass-level="4"] {
-  --glass-blur: 28px;
-  --glass-saturate: 180%;
-  --panel: rgba(255, 255, 255, 0.80);
-  --panel-border: rgba(203, 213, 225, 0.80);
-  --shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.10);
+  --glass-blur: 30px;
+  --glass-saturate: 195%;
+  --panel: rgba(255, 255, 255, 0.40);
+  --panel-top: rgba(255, 255, 255, 0.85);
+  --panel-border: rgba(37, 99, 235, 0.35);
+  --panel-highlight: #ffffff;
+  --panel-sheen: rgba(255, 255, 255, 0.80);
+  --shadow: 0 18px 42px -8px rgba(37, 99, 235, 0.12), inset 0 0 18px rgba(255, 255, 255, 0.65);
+  --topbar-bg: rgba(255, 255, 255, 0.60);
 }
 
 :root[data-theme="light"][data-glass-level="5"] {
-  --glass-blur: 38px;
-  --glass-saturate: 210%;
-  --panel: rgba(255, 255, 255, 0.72);
-  --panel-border: rgba(203, 213, 225, 0.75);
-  --shadow: 0 20px 42px -8px rgba(15, 23, 42, 0.12);
+  --glass-blur: 40px;
+  --glass-saturate: 235%;
+  --panel: rgba(255, 255, 255, 0.20);
+  --panel-top: rgba(255, 255, 255, 0.80);
+  --panel-border: rgba(37, 99, 235, 0.55);
+  --panel-highlight: #ffffff;
+  --panel-sheen: rgba(255, 255, 255, 0.95);
+  --shadow: 0 24px 52px -10px rgba(37, 99, 235, 0.20), 0 0 0 1.5px rgba(255, 255, 255, 0.9), inset 0 0 32px rgba(255, 255, 255, 0.85);
+  --topbar-bg: rgba(255, 255, 255, 0.40);
 }
 
 /* Base Reset & Setup */
@@ -227,10 +247,12 @@ body {
 }
 
 :root[data-theme="light"] body {
+  background-color: #e4eaf3;
   background-image: 
-    radial-gradient(ellipse 65% 45% at 20% 10%, rgba(130, 177, 255, 0.18), transparent 60%),
-    radial-gradient(ellipse 55% 40% at 85% 18%, rgba(179, 154, 250, 0.14), transparent 50%),
-    radial-gradient(ellipse 70% 50% at 50% 90%, rgba(94, 211, 160, 0.12), transparent 60%);
+    radial-gradient(ellipse 65% 55% at 10% 8%, rgba(37, 99, 235, 0.30), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 14%, rgba(147, 51, 234, 0.26), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 35% 85%, rgba(16, 185, 129, 0.24), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 75%, rgba(245, 158, 11, 0.20), transparent 50%);
 }
 
 a {
@@ -889,8 +911,8 @@ button {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
 }
 
 .project-card {
@@ -2047,9 +2069,7 @@ button {
 
 /* Light Theme Project Cards & Badges */
 :root[data-theme="light"] .project-card {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(203, 213, 225, 0.85);
-  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  /* Inherits dynamic --panel from .glass-panel to respond to L1-L5 */
 }
 
 :root[data-theme="light"] .project-card:hover {
@@ -2133,4 +2153,166 @@ button {
   background: #f1f5f9;
   color: #0f172a;
   border-color: #1d4ed8;
+}
+
+
+/* Discord Header Pill */
+.btn-discord-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(88, 101, 242, 0.15);
+  border: 1px solid rgba(88, 101, 242, 0.35);
+  color: #5865F2;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-discord-header:hover {
+  background: rgba(88, 101, 242, 0.25);
+  border-color: #5865F2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(88, 101, 242, 0.25);
+}
+
+.btn-discord-header strong {
+  font-family: var(--font-mono);
+  color: var(--fg-strong);
+}
+
+/* Discord Hero Role Badge */
+.discord-badge-pill {
+  cursor: pointer;
+  background: rgba(88, 101, 242, 0.12) !important;
+  color: #5865F2 !important;
+  border-color: rgba(88, 101, 242, 0.35) !important;
+  transition: var(--transition);
+}
+
+.discord-badge-pill:hover {
+  background: rgba(88, 101, 242, 0.22) !important;
+  border-color: #5865F2 !important;
+  transform: translateY(-1px);
+}
+
+.copy-tag-mini {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(88, 101, 242, 0.25);
+  color: #5865F2;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-left: 2px;
+  transition: var(--transition);
+}
+
+.copy-tag-mini.copied, .copy-subtag.copied {
+  background: #10b981 !important;
+  color: #ffffff !important;
+}
+
+/* Hero Inline Contact Row */
+.hero-contact-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.inline-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inline-item svg {
+  color: var(--accent);
+}
+
+.inline-item a {
+  color: var(--fg-strong);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.inline-item a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.inline-discord-copy {
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: var(--transition);
+}
+
+.inline-discord-copy:hover {
+  background: var(--surface-hover);
+  border-color: #5865F2;
+  color: var(--fg-strong);
+}
+
+.inline-discord-copy svg {
+  color: #5865F2 !important;
+}
+
+.inline-bullet {
+  color: var(--line-strong);
+  font-weight: 700;
+}
+
+.copy-subtag {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(88, 101, 242, 0.15);
+  color: #5865F2;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 4px;
+  transition: var(--transition);
+}
+
+/* Light Theme Overrides for Header & Inline Discord */
+:root[data-theme="light"] .btn-discord-header {
+  background: #ffffff;
+  border-color: rgba(88, 101, 242, 0.35);
+  color: #5865F2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="light"] .btn-discord-header:hover {
+  background: rgba(88, 101, 242, 0.08);
+  border-color: #5865F2;
+}
+
+:root[data-theme="light"] .discord-badge-pill {
+  background: rgba(88, 101, 242, 0.08) !important;
+  border-color: rgba(88, 101, 242, 0.3) !important;
+  color: #4338ca !important;
+}
+
+:root[data-theme="light"] .inline-discord-copy {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+:root[data-theme="light"] .inline-discord-copy:hover {
+  background: #f8fafc;
+  border-color: #4338ca;
+  color: #0f172a;
 }
