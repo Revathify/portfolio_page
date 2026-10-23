@@ -25,6 +25,7 @@
   - **Revath's Enchanted Frames** (Public WoW Addon Suite: Macro Workshop, Mailbox, Tooltips, Planner & Whispers) — [GitHub Repo](https://github.com/Revathify/Revaths-Enchanted-Frames)
   - **RPI-Dashboard** (Raspberry Pi Local Refractive Glass Workspace) — [GitHub Repo](https://github.com/Revathify/RPI-Dashboard)
   - **Revath's Log Analyzer Tool / WCFLA** (Warcraft Logs V2 Desktop Analytics) — [GitHub Repo](https://github.com/Revathify/WCFLA)
+  - **fxplorer** (Windows file explorer and storage visualization, in development) — [GitHub Repo](https://github.com/Revathify/fxplorer)
   - **BBinder** (Private Prototype) — Brief architecture details for the motorcycle community and privacy-focused trip planner.
 - **Contact & Community**:
   - GitHub: [@Revathify](https://github.com/Revathify)

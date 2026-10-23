@@ -381,6 +381,25 @@ const PROJECT_MODAL_DATA = {
     isPrivate: false,
     repoUrl: "https://github.com/Revathify/RPI-Dashboard"
   },
+  fxplorer: {
+    badge: "Windows Desktop / In Development",
+    title: "fxplorer — A clearer view of your files",
+    content: `
+      <p>A Windows desktop file explorer that brings storage analysis into the everyday workspace. A proportional disk map, sortable file browser and details panel help explain what takes up space without uploading your files.</p>
+      <h4>Inside the workspace:</h4>
+      <ul>
+        <li><strong>Storage visualization:</strong> Interactive folder-size maps, category breakdowns and the 200 largest files across an analyzed location.</li>
+        <li><strong>Everyday browsing:</strong> Folder tabs, navigation history, pinned locations, filtering, text/raster previews and a review shortlist.</li>
+        <li><strong>Your preferred workspace:</strong> Dark, light and Windows themes, accent colors, list density, startup location and configurable analysis limits.</li>
+        <li><strong>Isolated analysis:</strong> A separate scanner process streams filesystem metadata, supports cancellation and skips inaccessible entries and symbolic links.</li>
+        <li><strong>Deliberate file actions:</strong> Copy, rename, new folders, JSON reports and confirmed Recycle Bin actions; no automatic deletion.</li>
+      </ul>
+      <h4>Tech stack:</h4>
+      <p>Electron, Node.js, isolated utility processes, vanilla JavaScript/CSS and a portable Windows x64 executable. Initial development build; no public binary release is claimed here.</p>
+    `,
+    isPrivate: false,
+    repoUrl: "https://github.com/Revathify/fxplorer"
+  },
   wcfla: {
     badge: "Open Source / Desktop & Web",
     title: "Revath's Log Analyzer Tool (WCFLA) — Warcraft Logs V2 Analytics",
@@ -479,6 +498,12 @@ function initModal() {
       if (e.target.closest('.proj-gh-link')) return;
       const id = card.getAttribute('data-project-id');
       if (id) openModal(id);
+    });
+    if (card.dataset.projectId === 'fxplorer') card.addEventListener('keydown', (event) => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target === card) {
+        event.preventDefault();
+        openModal('fxplorer');
+      }
     });
   });
 }
