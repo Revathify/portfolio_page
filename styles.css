@@ -244,7 +244,7 @@ body {
     radial-gradient(ellipse 55% 40% at 85% 18%, rgba(179, 154, 250, 0.11), transparent 50%),
     radial-gradient(ellipse 70% 50% at 50% 90%, rgba(94, 211, 160, 0.08), transparent 60%),
     radial-gradient(ellipse 45% 35% at 80% 80%, rgba(245, 158, 11, 0.06), transparent 50%);
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: var(--fg);
   font-size: 14px;
   line-height: 1.6;
@@ -275,6 +275,8 @@ a {
   inset: 0;
   z-index: -1;
   overflow: hidden;
+  contain: strict;
+  isolation: isolate;
   pointer-events: none;
   background: #22283d;
 }
@@ -473,6 +475,7 @@ a {
 .scene-motion-toggle[hidden] { display: none; }
 
 .scene-background[data-motion="paused"] *,
+.scene-background[data-scrolling="true"] *,
 .scene-background[data-idle="true"] * {
   animation-play-state: paused;
 }

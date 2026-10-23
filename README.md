@@ -11,6 +11,7 @@
   - Seamless 96-second camera drift, curved ship routes with changing depth and heading, gentle banking, and animated ion exhaust. Native browser animations use locally hosted WebP artwork, with no video player or animation library needed.
   - Three independently drifting cloud banks and 28 small vehicles following both directions of the painted highway. Traffic uses the artwork's coordinates so it remains aligned through camera movement and responsive image cropping.
   - Pause/play control with a saved preference, automatic pause in hidden tabs, and a still background by default for reduced-motion preferences.
+  - Temporarily pauses the scene during wheel, touch, and scroll activity, then resumes after 180 ms idle without changing the saved motion preference.
   - Works behind the existing glass panels in dark and light themes, with a separate mobile crop. All five light glass levels, including nested terminal/stat surfaces, remain translucent.
 - **RPI-Dashboard Refractive Glass Style**:
   - 5 configurable glass levels (L1: Subtelny, L2: Klasyczny, L3: Szklisty, L4: Kryształ, L5: Refrakcyjne szkło) with custom CSS `backdrop-filter`, `saturate`, specular sheen, and inset border highlights.

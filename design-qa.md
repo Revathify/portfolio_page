@@ -91,3 +91,31 @@ The image layers intentionally offer subtler motion than the source's full 3D ca
 - [x] Reduced-motion and hidden-tab handling verified.
 - [x] Desktop themes and narrow-screen composition inspected.
 - [x] Preview retained for review; no deployment performed.
+
+## Scroll rendering follow-up — 23 October 2026
+
+The user reported severe scrolling lag on the public site in Chrome and Opera,
+while the in-app browser was smooth. They confirmed that manually pausing the
+background made scrolling much smoother. This narrows the issue to the live
+scene/rendering interaction; no Chrome GPU trace or frame-rate benchmark was
+captured.
+
+- The scene now holds its current animation frames during wheel, touchmove, and
+  scroll activity and resumes after 180 ms idle. Passive listeners only change
+  animation playback on state transitions; they do not rebuild routes, reload
+  artwork, read layout, or overwrite saved Play/Pause preferences.
+- The fixed scene has paint/layout containment and isolated blending. The
+  covered fallback body gradients no longer use fixed background attachment.
+  Existing glass tokens, cloud/ship/traffic layers, and transparency are retained.
+- Six committed controller tests pass with `node --test tests/background-motion.test.cjs`,
+  covering timer extension, phase and preference preservation, explicit playback
+  during a hold, reduced motion, visibility cleanup, and unavailable storage.
+- A local in-app browser fixture exercised real CSS/native animation pause and
+  resume at desktop and 390-pixel widths. All 16 assertions passed, including
+  phase preservation and computed containment/attachment. Evidence and fixture
+  remain ignored under `.preview/scroll-qa.html` and `.preview/scroll-checks.txt`.
+- Dark-mode composition was visually inspected. JavaScript syntax and whitespace
+  checks passed. Resource versions are paired at `orbital-5`.
+- These checks establish playback behavior and source validity. Smoothness in
+  the user's Chrome/Opera installation still requires their confirmation after
+  the public update; the in-app browser does not establish that result.
