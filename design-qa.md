@@ -100,22 +100,24 @@ background made scrolling much smoother. This narrows the issue to the live
 scene/rendering interaction; no Chrome GPU trace or frame-rate benchmark was
 captured.
 
-- The scene now holds its current animation frames during wheel, touchmove, and
-  scroll activity and resumes after 180 ms idle. Passive listeners only change
-  animation playback on state transitions; they do not rebuild routes, reload
-  artwork, read layout, or overwrite saved Play/Pause preferences.
+- An initial temporary scroll hold (`effe1ea`) improved the user's scrolling,
+  but they rejected the frozen background. The final version removes that hold:
+  no scroll, wheel, or touch handler pauses, restarts, or rebuilds the scene.
 - The fixed scene has paint/layout containment and isolated blending. The
   covered fallback body gradients no longer use fixed background attachment.
-  Existing glass tokens, cloud/ship/traffic layers, and transparency are retained.
-- Six committed controller tests pass with `node --test tests/background-motion.test.cjs`,
-  covering timer extension, phase and preference preservation, explicit playback
-  during a hold, reduced motion, visibility cleanup, and unavailable storage.
-- A local in-app browser fixture exercised real CSS/native animation pause and
-  resume at desktop and 390-pixel widths. All 16 assertions passed, including
-  phase preservation and computed containment/attachment. Evidence and fixture
+  Glass-panel/modal blur is capped at 6px, the motion control uses 6px blur, and
+  vehicle sprites no longer add separate drop-shadow filter passes. Glass fill,
+  saturation, border tokens, and all cloud/ship/traffic animation layers remain.
+- Four committed controller tests pass with `node --test tests/background-motion.test.cjs`,
+  covering continuous playback without scroll side effects or timers, saved
+  preferences, reduced motion, hidden-tab behavior, and unavailable storage.
+- A local in-app browser fixture exercised real CSS/native animation playback
+  through four scroll positions at desktop and 390-pixel widths. All 28 assertions
+  passed, including advancing route phases, unchanged preferences, 6px effective
+  L5 blur, and containment/attachment/filter checks. Evidence and fixture
   remain ignored under `.preview/scroll-qa.html` and `.preview/scroll-checks.txt`.
-- Dark-mode composition was visually inspected. JavaScript syntax and whitespace
-  checks passed. Resource versions are paired at `orbital-5`.
+- Light L5 composition was visually inspected. JavaScript syntax and whitespace
+  checks passed. Resource versions are paired at `orbital-6`.
 - These checks establish playback behavior and source validity. Smoothness in
   the user's Chrome/Opera installation still requires their confirmation after
-  the public update; the in-app browser does not establish that result.
+  the continuous-motion update; the in-app browser does not establish that result.

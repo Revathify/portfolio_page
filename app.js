@@ -77,7 +77,7 @@ function initCityTraffic() {
       });
       car.animation = car.element.animate(frames, { duration: car.duration, iterations: Infinity, easing: 'linear' });
       car.animation.currentTime = time;
-      if (scene.dataset.motion === 'paused' || scene.dataset.scrolling === 'true' || document.hidden) car.animation.pause();
+      if (scene.dataset.motion === 'paused' || document.hidden) car.animation.pause();
     }
   }
 
@@ -125,7 +125,7 @@ function initSpaceFlight() {
       });
       const flight = ship.animate(frames, { duration: route.duration, iterations: Infinity, easing: 'linear' });
       flight.currentTime = time;
-      if (scene.dataset.motion === 'paused' || scene.dataset.scrolling === 'true' || document.hidden) flight.pause();
+      if (scene.dataset.motion === 'paused' || document.hidden) flight.pause();
       flights.set(ship, flight);
     }
   }
@@ -142,8 +142,6 @@ function initBackgroundMotion() {
   const scene = document.getElementById('sceneBackground');
   const toggle = document.getElementById('sceneMotionToggle');
   if (!scene || !toggle) return;
-  scene.dataset.scrolling = 'false';
-  let scrollIdleTimer;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let savedMotion;
@@ -152,7 +150,7 @@ function initBackgroundMotion() {
   } catch { /* The background also works when storage is unavailable. */ }
 
   function syncAnimations() {
-    const paused = scene.dataset.motion === 'paused' || scene.dataset.scrolling === 'true' || document.hidden;
+    const paused = scene.dataset.motion === 'paused' || document.hidden;
     for (const animation of scene.getAnimations?.({ subtree: true }) || []) {
       if (paused) animation.pause();
       else animation.play();
@@ -181,32 +179,7 @@ function initBackgroundMotion() {
     if (event.matches) setMotion(true);
   });
 
-  // Hold the current frame while glass panels scroll over the scene. Only
-  // state transitions touch animations; repeated inputs just extend the hold.
-  function holdBackgroundForScroll() {
-    if (document.hidden) return;
-    if (scene.dataset.scrolling !== 'true') {
-      scene.dataset.scrolling = 'true';
-      syncAnimations();
-    }
-    clearTimeout(scrollIdleTimer);
-    scrollIdleTimer = setTimeout(() => {
-      scrollIdleTimer = undefined;
-      scene.dataset.scrolling = 'false';
-      syncAnimations();
-    }, 180);
-  }
-
-  window.addEventListener('wheel', holdBackgroundForScroll, { passive: true });
-  window.addEventListener('touchmove', holdBackgroundForScroll, { passive: true });
-  window.addEventListener('scroll', holdBackgroundForScroll, { passive: true });
-
   function updateVisibility() {
-    if (document.hidden) {
-      clearTimeout(scrollIdleTimer);
-      scrollIdleTimer = undefined;
-      scene.dataset.scrolling = 'false';
-    }
     scene.dataset.idle = String(document.hidden);
     syncAnimations();
   }

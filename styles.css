@@ -316,7 +316,6 @@ a {
   height: auto;
   opacity: 0;
   transform-origin: center;
-  filter: drop-shadow(0 0 1px rgba(255, 211, 152, 0.6));
   will-change: transform, opacity;
 }
 
@@ -454,8 +453,8 @@ a {
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-pill);
   background: var(--topbar-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: var(--fg);
   font-family: var(--font-mono);
   font-size: 11px;
@@ -475,7 +474,6 @@ a {
 .scene-motion-toggle[hidden] { display: none; }
 
 .scene-background[data-motion="paused"] *,
-.scene-background[data-scrolling="true"] *,
 .scene-background[data-idle="true"] * {
   animation-play-state: paused;
 }
@@ -506,8 +504,8 @@ button {
 
 .glass-panel {
   background: var(--panel);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(min(var(--glass-blur), 6px)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(min(var(--glass-blur), 6px)) saturate(var(--glass-saturate));
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-lg);
   box-shadow: inset 0 1px 0 var(--panel-highlight), var(--shadow);
@@ -1923,7 +1921,7 @@ button {
   max-width: 760px;
   max-height: 88vh;
   background: var(--panel);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(min(var(--glass-blur), 6px)) saturate(var(--glass-saturate));
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-xl);
   box-shadow: 0 30px 70px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 var(--panel-highlight);
