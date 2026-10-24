@@ -1594,6 +1594,29 @@ button {
   padding: 28px;
 }
 
+.background-group-title {
+  margin-bottom: 18px;
+  color: var(--fg-strong);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.personal-projects {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.personal-projects .background-group-title {
+  margin-bottom: 10px;
+}
+
+.personal-projects-summary {
+  color: var(--fg);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
 .timeline {
   position: relative;
   padding-left: 20px;

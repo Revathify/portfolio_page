@@ -142,3 +142,15 @@ captured.
   `.preview/workspaces-checks.json`. These are session evidence, not committed CI.
 - These checks were performed on the local working tree. Subsequent commit and
   live delivery evidence is maintained in the canonical Portfolio vault guides.
+
+## Experience grouping — 24 October 2026
+
+The employment timeline now contains only Intel and Nokia under Professional
+Experience. Personal Projects & Open Source is a separate section with project
+examples and an explicit reference to work alongside the current Intel role.
+The former Independent Software Development timeline entry and Ongoing date
+are removed. Skills and workspace-tab sizing are unchanged.
+
+Desktop appearance was visually inspected. A 390px browser DOM check found
+no horizontal page overflow, only Intel/Nokia in the employment timeline,
+both new section headings, and no former role label. Git whitespace checks passed.

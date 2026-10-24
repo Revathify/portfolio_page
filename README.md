@@ -30,7 +30,7 @@
 - **Workspaces & Experience**:
   - Infrastructure, WoW Addons, and Dev Projects share the tallest terminal pane's natural height, keeping both hero cards and the projects section steady when switching tabs. The layout adapts to screen width without fixed heights or clipped output.
   - Dev Projects includes RPI-Dashboard, WCFLA, BBinder, and fxplorer (in development).
-  - Experience separates Intel/Nokia roles from independent software work. Skills include web/mobile, desktop, data/API integration, and game addons alongside infrastructure and GPU validation, grounded in the canonical project vault.
+  - Experience groups Intel/Nokia roles under Professional Experience and places Personal Projects & Open Source in a separate section outside the employment timeline. Skills include web/mobile, desktop, data/API integration, and game addons alongside infrastructure and GPU validation, grounded in the canonical project vault.
 - **Contact & Community**:
   - GitHub: [@Revathify](https://github.com/Revathify)
   - Discord: `revath`
