@@ -27,6 +27,10 @@
   - **Revath's Log Analyzer Tool / WCFLA** (Warcraft Logs V2 Desktop Analytics) — [GitHub Repo](https://github.com/Revathify/WCFLA)
   - **fxplorer** (Windows file explorer and storage visualization, in development) — [GitHub Repo](https://github.com/Revathify/fxplorer)
   - **BBinder** (Private Prototype) — Brief architecture details for the motorcycle community and privacy-focused trip planner.
+- **Workspaces & Experience**:
+  - Infrastructure, WoW Addons, and Dev Projects share the tallest terminal pane's natural height, keeping both hero cards and the projects section steady when switching tabs. The layout adapts to screen width without fixed heights or clipped output.
+  - Dev Projects includes RPI-Dashboard, WCFLA, BBinder, and fxplorer (in development).
+  - Experience separates Intel/Nokia roles from independent software work. Skills include web/mobile, desktop, data/API integration, and game addons alongside infrastructure and GPU validation, grounded in the canonical project vault.
 - **Contact & Community**:
   - GitHub: [@Revathify](https://github.com/Revathify)
   - Discord: `revath`

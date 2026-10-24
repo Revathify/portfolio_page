@@ -26,7 +26,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2312233d'/><text x='50%' y='55%' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-size='48' font-weight='700' fill='%2382b1ff'>R</text></svg>">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=orbital-6">
+  <link rel="stylesheet" href="styles.css?v=workspaces-1">
 </head>
 <body>
 
@@ -132,7 +132,7 @@
           </h1>
 
           <p class="hero-bio">
-            I work as a <strong>Senior Linux Integration Engineer at Intel</strong>, where I am responsible for validation infrastructure, multi-distro golden-image automation across Linux and Windows, and bare-metal GPU driver acceleration workflows. In addition to enterprise infrastructure, I design and build full-stack web and mobile applications, local telemetry dashboards, and open-source game modifications.
+            I work as a <strong>Senior Linux Integration Engineer at Intel</strong>, where I am responsible for validation infrastructure, multi-distro golden-image automation across Linux and Windows, and bare-metal GPU driver acceleration workflows. Alongside infrastructure, I build full-stack web and mobile applications, Electron desktop tools, Raspberry Pi telemetry dashboards, and open-source game addons.
           </p>
         </div>
 
@@ -157,9 +157,9 @@
           </div>
 
           <div class="telemetry-tabs">
-            <button class="tel-tab active" data-tab="infra">Infrastructure</button>
-            <button class="tel-tab" data-tab="addons">WoW Addons</button>
-            <button class="tel-tab" data-tab="tools">Dev Projects</button>
+            <button class="tel-tab active" data-tab="infra" aria-pressed="true" aria-controls="terminalOutput">Infrastructure</button>
+            <button class="tel-tab" data-tab="addons" aria-pressed="false" aria-controls="terminalOutput">WoW Addons</button>
+            <button class="tel-tab" data-tab="tools" aria-pressed="false" aria-controls="terminalOutput">Dev Projects</button>
           </div>
         </div>
 
@@ -393,7 +393,7 @@
         <div class="section-title-wrap">
           <span class="section-tag">PROFESSIONAL FOCUS</span>
           <h2 class="section-title">Experience &amp; Background</h2>
-          <p class="section-desc">A brief summary of primary roles and technical competencies.</p>
+          <p class="section-desc">Systems integration experience, backed by hands-on web, mobile, desktop, and open-source development.</p>
         </div>
       </div>
 
@@ -430,6 +430,20 @@
                 Led automated test integration for LTE/5G features, maintained physical hardware test lines, and spearheaded early dual-connectivity test cases.
               </p>
             </div>
+
+            <!-- Independent engineering work, separate from employment -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="job-header">
+                <div>
+                  <span class="job-role">Independent Software Development</span>
+                </div>
+                <span class="job-date">Ongoing</span>
+              </div>
+              <p style="font-size:13px;color:var(--fg);margin-top:6px;line-height:1.55;">
+                Build across the stack: React and React Native clients with a Fastify/PostgreSQL backend in BBinder; Raspberry Pi and Windows telemetry in RPI-Dashboard; OAuth-secured GraphQL analytics in WCFLA; and isolated filesystem scanning and storage visualization in fxplorer. Develop modular Lua addons with automated checks and packaging for Revath's Enchanted Frames.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -453,18 +467,45 @@
               <span class="skill-chip">Secure Boot Signing</span>
               <span class="skill-chip">Level-Zero &amp; OpenCL</span>
               <span class="skill-chip">Multi-Distro Packaging</span>
+              <span class="skill-chip">Raspberry Pi / ARM64</span>
+              <span class="skill-chip">systemd &amp; SSH</span>
             </div>
           </div>
 
           <div class="skill-category">
-            <span class="skill-cat-title">Languages &amp; Stacks</span>
+            <span class="skill-cat-title">Languages &amp; Web / Mobile</span>
             <div class="chips-cloud">
               <span class="skill-chip">Python</span>
               <span class="skill-chip">Bash / Shell</span>
               <span class="skill-chip">PowerShell</span>
-              <span class="skill-chip">Lua</span>
+              <span class="skill-chip hot">JavaScript / TypeScript</span>
               <span class="skill-chip">React / React Native</span>
-              <span class="skill-chip">Fastify &amp; Node.js</span>
+              <span class="skill-chip">Vite</span>
+              <span class="skill-chip">HTML / CSS</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <span class="skill-cat-title">Backend, Data &amp; API Integration</span>
+            <div class="chips-cloud">
+              <span class="skill-chip hot">Node.js / Fastify</span>
+              <span class="skill-chip">PostgreSQL</span>
+              <span class="skill-chip">SQLite / WatermelonDB</span>
+              <span class="skill-chip">REST / GraphQL</span>
+              <span class="skill-chip">WebSockets</span>
+              <span class="skill-chip">OAuth 2.0 / PKCE</span>
+              <span class="skill-chip">S3-Compatible Storage</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <span class="skill-cat-title">Desktop Tools &amp; Game Addons</span>
+            <div class="chips-cloud">
+              <span class="skill-chip hot">Electron</span>
+              <span class="skill-chip">Isolated IPC &amp; Workers</span>
+              <span class="skill-chip">Filesystem Analysis</span>
+              <span class="skill-chip">Windows Packaging</span>
+              <span class="skill-chip">Lua / WoW FrameXML</span>
             </div>
           </div>
         </div>
@@ -527,6 +568,6 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="app.js?v=fxplorer-1"></script>
+  <script src="app.js?v=workspaces-1"></script>
 </body>
 </html>

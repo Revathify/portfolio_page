@@ -287,11 +287,12 @@ const TERMINAL_DATA = {
 <div class="term-line"><span class="term-dim">-- Public repositories live on GitHub @Revathify</span></div>
 `,
   tools: `
-<div class="term-line"><span class="term-amber">[DEV-PROJECTS]</span> System telemetry and desktop log analytics...</div>
-<div class="term-line"><span class="term-cyan">✔ RPI-DASHBOARD:</span> 24/7 ARM64 Raspberry Pi refractive glass developer workstation</div>
-<div class="term-line"><span class="term-green">✔ WCFLA:</span> Warcraft Logs V2 encounter analysis with OAuth 2.0 PKCE security</div>
-<div class="term-line"><span class="term-purple">✔ BBINDER:</span> Motorcycle community and privacy-focused trip planning engine</div>
-<div class="term-line"><span class="term-dim">-- Cross-platform: Web, Electron desktop & React Native</span></div>
+<div class="term-line"><span class="term-amber">[DEV-PROJECTS]</span> Web, mobile &amp; desktop engineering</div>
+<div class="term-line"><span class="term-cyan">✔ RPI-DASHBOARD:</span> Raspberry Pi &amp; Windows telemetry workspace</div>
+<div class="term-line"><span class="term-green">✔ WCFLA:</span> GraphQL encounter analytics with OAuth 2.0 / PKCE</div>
+<div class="term-line"><span class="term-purple">✔ BBINDER:</span> Motorcycle community &amp; privacy-focused trip planner</div>
+<div class="term-line"><span class="term-amber">✔ FXPLORER:</span> Windows file explorer &amp; storage maps, in development</div>
+<div class="term-line"><span class="term-dim">-- React / React Native / Electron / Node.js</span></div>
 `
 };
 
@@ -300,14 +301,35 @@ function initTerminalTabs() {
   const termContent = document.getElementById('terminalOutput');
   if (!termContent) return;
 
+  // All panes share one grid cell. Hidden panes still reserve their natural
+  // height, keeping both hero cards stable as copy wraps at any screen size.
+  const panes = Object.entries(TERMINAL_DATA).map(([key, content]) => {
+    const pane = document.createElement('div');
+    pane.className = 'terminal-pane';
+    pane.dataset.terminalPanel = key;
+    pane.innerHTML = content;
+    return pane;
+  });
+  termContent.replaceChildren(...panes);
+
+  function selectTab(target) {
+    tabs.forEach(tab => {
+      const active = tab.getAttribute('data-tab') === target;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-pressed', String(active));
+    });
+    panes.forEach(pane => {
+      const active = pane.dataset.terminalPanel === target;
+      pane.setAttribute('aria-hidden', String(!active));
+      pane.inert = !active;
+    });
+  }
+
+  selectTab('infra');
   tabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
-      tabs.forEach(t => t.classList.remove('active'));
-      e.currentTarget.classList.add('active');
       const target = e.currentTarget.getAttribute('data-tab');
-      if (TERMINAL_DATA[target]) {
-        termContent.innerHTML = TERMINAL_DATA[target];
-      }
+      if (TERMINAL_DATA[target]) selectTab(target);
     });
   });
 }

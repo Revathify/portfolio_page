@@ -885,12 +885,15 @@ button {
   padding: 24px;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .telemetry-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
   margin-bottom: 16px;
@@ -909,6 +912,7 @@ button {
 
 .telemetry-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 
@@ -945,6 +949,24 @@ button {
   flex-direction: column;
   justify-content: space-between;
   color: #f1f5f9;
+  min-width: 0;
+}
+
+/* All workspace panes share one grid cell. The largest pane sets the output
+   height, so switching tabs does not resize the terminal or its parent card. */
+#terminalOutput {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+
+.terminal-pane {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.terminal-pane[aria-hidden="true"] {
+  visibility: hidden;
 }
 
 .terminal-bar {
@@ -998,7 +1020,7 @@ button {
 .term-line {
   color: #e2e8f0;
   margin-bottom: 7px;
-  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .term-dim { color: #8b949e; }
@@ -1042,6 +1064,7 @@ button {
   border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .mini-stat-val {
@@ -1056,6 +1079,7 @@ button {
   color: var(--muted);
   text-transform: uppercase;
   margin-top: 2px;
+  overflow-wrap: anywhere;
 }
 
 /* ==========================================================================

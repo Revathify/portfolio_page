@@ -121,3 +121,24 @@ captured.
 - These checks establish playback behavior and source validity. Smoothness in
   the user's Chrome/Opera installation still requires their confirmation after
   the continuous-motion update; the in-app browser does not establish that result.
+
+## Workspace sizing and experience — 23 October 2026
+
+- All terminal panes share a CSS grid cell; hidden/inert panes reserve the tallest
+  content height. Switching Infrastructure, WoW Addons and Dev Projects keeps the
+  hero cards, terminal, mini stats and Featured Projects position steady.
+- Dev Projects includes fxplorer, labelled in development. Experience separates
+  independent development from Intel/Nokia employment and expands the skills
+  stack using the current canonical project notes. Hero text mentions desktop tools.
+- Real in-app browser checks covered all three tabs at 1440, 1024, 768, 390 and
+  320 CSS-pixel widths in both themes (30 tab states). Panel dimensions and project
+  positions matched across tabs at each width/theme, with one visible pane, no
+  terminal clipping and no horizontal page overflow. Selected button states matched.
+- Desktop light/L5, narrow dark and Experience & Background were visually inspected.
+  Browser warning/error readback was empty. JavaScript syntax, all four existing
+  background-motion tests and Git whitespace checks passed.
+- Local screenshots and results are ignored under `.preview/workspaces-desktop.png`,
+  `.preview/workspaces-mobile.png`, `.preview/experience-updated.png` and
+  `.preview/workspaces-checks.json`. These are session evidence, not committed CI.
+- These checks were performed on the local working tree. Subsequent commit and
+  live delivery evidence is maintained in the canonical Portfolio vault guides.
